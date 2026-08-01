@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- deploy: v3 -->
+<!-- deploy: v4 -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RPG Combat Toolkit — Arkana Mechanika Studios</title>
-  <meta name="description" content="RPG Combat Toolkit (TBCS) is a complete, production-ready framework for grid-based turn-based combat in Unity.">
+  <meta name="description" content="RPG Combat Toolkit (TBCS) is a modular Unity 6 framework for grid-based, turn-based combat in tactical RPG and CRPG projects.">
   <meta name="theme-color" content="#04060D">
 
   <!-- Open Graph -->
@@ -13,12 +13,12 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://arkana-mechanika-studios.github.io/">
   <meta property="og:title" content="Arkana Mechanika Studios — RPG Combat Toolkit (TBCS)">
-  <meta property="og:description" content="Professional Unity tools for tactical/CRPG games.">
+  <meta property="og:description" content="A modular Unity 6 framework for tactical, grid-based turn-based combat in 2D and 3D.">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Arkana Mechanika Studios — RPG Combat Toolkit">
-  <meta name="twitter:description" content="Professional Unity tools for tactical/CRPG games.">
+  <meta name="twitter:description" content="A modular Unity 6 framework for tactical, grid-based turn-based combat in 2D and 3D.">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://arkana-mechanika-studios.github.io/">
@@ -47,12 +47,16 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "RPG Combat Toolkit (TBCS)",
-    "applicationCategory": "GameDevelopment",
-    "operatingSystem": "Windows, macOS",
-    "softwareRequirements": "Unity 2021.3+",
-    "description": "A modular framework for grid-based, turn-based combat in Unity with 2D/3D support.",
-    "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" },
-    "publisher": { "@type": "Organization", "name": "Arkana Mechanika Studios", "url": "https://arkana-mechanika-studios.github.io" }
+    "softwareVersion": "1.0.0",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Unity Editor",
+    "softwareRequirements": "Unity 6.0 LTS or newer validated Unity 6 release; Unity Input System; UGUI; TextMesh Pro; URP for supplied demos and presentation assets",
+    "description": "A modular framework for grid-based, turn-based combat in Unity 6 with 2D and 3D support, editor setup tools, default UGUI presentation, and demonstration scenes.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arkana Mechanika Studios",
+      "url": "https://arkana-mechanika-studios.github.io"
+    }
   }
   </script>
   <link rel="stylesheet" href="/style.css">
@@ -75,10 +79,10 @@
         <span class="nav-name">Arkana Mechanika</span>
       </div>
       <div class="nav-links" role="list">
-        <a href="#about"   role="listitem">About</a>
+        <a href="#about" role="listitem">About</a>
         <a href="#product" role="listitem">Toolkit</a>
-        <a href="#docs"    role="listitem">Docs</a>
-        <a href="#media"   role="listitem">Media</a>
+        <a href="#docs" role="listitem">Docs</a>
+        <a href="#media" role="listitem">Media</a>
         <a href="#tutorials" role="listitem">Tutorials</a>
         <a href="#contact" role="listitem">Contact</a>
         <a href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1"
@@ -102,12 +106,10 @@
     <section class="hero" aria-labelledby="hero-heading">
       <div class="container">
         <div class="hero-inner">
-
-          <!-- Left: copy -->
           <div class="hero-text">
             <div class="hero-eyebrow" aria-hidden="true">
               <div class="hero-eyebrow-line"></div>
-              <span class="hero-eyebrow-text">Unity tools for tactical &amp; CRPG games</span>
+              <span class="hero-eyebrow-text">Unity 6 tools for tactical &amp; CRPG games</span>
             </div>
 
             <h1 class="hero-title" id="hero-heading">
@@ -116,40 +118,38 @@
             </h1>
 
             <p class="hero-body">
-              Everything your tactical RPG needs — turns, abilities, overlays, stats, saves, and
-              combat UI — fully wired and playable on day one. No boilerplate. No guesswork.
+              Build grid-based, turn-based combat with modular turns, actions, abilities, effects,
+              inventory, stats, reactions, combat snapshots, and default UGUI presentation — backed
+              by setup tools, validation, documentation, and playable demonstrations.
             </p>
 
             <div class="hero-actions">
               <a class="btn btn-primary"
                  href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1"
-                 target="_blank" rel="noopener noreferrer">▶ Play demo on itch.io</a>
+                 target="_blank" rel="noopener noreferrer">▶ Play the public demo</a>
               <a class="btn btn-ghost" href="#product">See what's inside</a>
             </div>
 
             <div class="hero-meta">
-              <span class="pill pill-amber">Pre-release demo</span>
+              <span class="pill pill-amber">Version 1.0 release candidate</span>
               <div class="hero-meta-dot" aria-hidden="true"></div>
-              <span class="hero-meta-text">Unity 2021.3+</span>
+              <span class="hero-meta-text">Unity 6.0 LTS minimum</span>
               <div class="hero-meta-dot" aria-hidden="true"></div>
               <span class="hero-meta-text">2D &amp; 3D</span>
               <div class="hero-meta-dot" aria-hidden="true"></div>
-              <span class="hero-meta-text">URP &amp; Built-in</span>
+              <span class="hero-meta-text">URP demos</span>
             </div>
           </div>
 
-          <!-- Right: visual -->
           <div class="hero-visual" aria-hidden="true">
             <div class="hero-img-wrap">
               <img src="/assets/intro_screen2.png" alt="RPG Combat Toolkit" loading="eager"
                    onerror="this.style.cssText='background:linear-gradient(135deg,#0C1220,#111826);min-height:320px;width:100%';this.removeAttribute('src')">
             </div>
           </div>
-
         </div>
       </div>
     </section>
-
 
     <!-- ─── TICKER ───────────────────────────────────────────────────── -->
     <div class="ticker" aria-hidden="true">
@@ -157,25 +157,25 @@
         <!-- set 1 -->
         <span class="ticker-item"><span class="ticker-dot"></span>Grid-based combat</span>
         <span class="ticker-item"><span class="ticker-dot"></span>NodeGraph stat formulas</span>
-        <span class="ticker-item"><span class="ticker-dot"></span>2D &amp; 3D dual-mode</span>
-        <span class="ticker-item"><span class="ticker-dot"></span>Save-ready combat loop</span>
+        <span class="ticker-item"><span class="ticker-dot"></span>2D &amp; 3D support</span>
+        <span class="ticker-item"><span class="ticker-dot"></span>Combat snapshot adapters</span>
         <span class="ticker-item"><span class="ticker-dot"></span>Modular abilities pipeline</span>
-        <span class="ticker-item"><span class="ticker-dot"></span>GPU-instanced overlays</span>
+        <span class="ticker-item"><span class="ticker-dot"></span>Reactions &amp; ready actions</span>
         <span class="ticker-item"><span class="ticker-dot"></span>UGUI combat UI included</span>
         <span class="ticker-item"><span class="ticker-dot"></span>Action point flexibility</span>
-        <span class="ticker-item"><span class="ticker-dot"></span>Multi-tile actors 1×1 → 3×3</span>
-        <span class="ticker-item"><span class="ticker-dot"></span>Unity Asset Store — coming soon</span>
+        <span class="ticker-item"><span class="ticker-dot"></span>Multi-tile actors</span>
+        <span class="ticker-item"><span class="ticker-dot"></span>Unity Asset Store release in preparation</span>
         <!-- set 2 (duplicate for seamless loop) -->
         <span class="ticker-item"><span class="ticker-dot"></span>Grid-based combat</span>
         <span class="ticker-item"><span class="ticker-dot"></span>NodeGraph stat formulas</span>
-        <span class="ticker-item"><span class="ticker-dot"></span>2D &amp; 3D dual-mode</span>
-        <span class="ticker-item"><span class="ticker-dot"></span>Save-ready combat loop</span>
+        <span class="ticker-item"><span class="ticker-dot"></span>2D &amp; 3D support</span>
+        <span class="ticker-item"><span class="ticker-dot"></span>Combat snapshot adapters</span>
         <span class="ticker-item"><span class="ticker-dot"></span>Modular abilities pipeline</span>
-        <span class="ticker-item"><span class="ticker-dot"></span>GPU-instanced overlays</span>
+        <span class="ticker-item"><span class="ticker-dot"></span>Reactions &amp; ready actions</span>
         <span class="ticker-item"><span class="ticker-dot"></span>UGUI combat UI included</span>
         <span class="ticker-item"><span class="ticker-dot"></span>Action point flexibility</span>
-        <span class="ticker-item"><span class="ticker-dot"></span>Multi-tile actors 1×1 → 3×3</span>
-        <span class="ticker-item"><span class="ticker-dot"></span>Unity Asset Store — coming soon</span>
+        <span class="ticker-item"><span class="ticker-dot"></span>Multi-tile actors</span>
+        <span class="ticker-item"><span class="ticker-dot"></span>Unity Asset Store release in preparation</span>
       </div>
     </div>
 
@@ -183,18 +183,18 @@
     <section id="about" class="section" aria-labelledby="about-heading">
       <div class="container">
         <div class="about-inner">
-
           <div>
             <p class="section-label" aria-hidden="true">About</p>
             <h2 class="section-title" id="about-heading">Developer-led.<br>Built for iteration.</h2>
             <p class="about-body">
-              We're developers who got tired of rebuilding the same combat systems every project.
-              <strong>TBCS is the toolkit we wished existed</strong> — and now it does.
+              We're developers who got tired of rebuilding the same combat foundations for every project.
+              <strong>TBCS is the toolkit we wished existed</strong> — modular enough to replace, practical
+              enough to use, and supported by real editor workflows.
             </p>
             <p class="about-body">
-              Every system — movement, targeting, abilities, stats, overlays, inventory, saves —
-              ships pre-wired and playable. You configure, extend, and ship.
-              We've done the boilerplate so you don't have to.
+              Movement, targeting, actions, abilities, effects, statuses, stats, inventory, visual feedback,
+              and persistence adapters are composed through clear runtime boundaries. Use the supplied defaults,
+              replace individual services, or extend the framework for your own combat rules.
             </p>
           </div>
 
@@ -203,25 +203,24 @@
               <div class="value-icon vi-teal">💡</div>
               <div>
                 <div class="value-vt">Clear architecture</div>
-                <div class="value-vd">Composable systems with clean interfaces — easy to understand, extend, and replace.</div>
+                <div class="value-vd">Interfaces, providers, adapters, factories, registrars, and focused assemblies keep systems replaceable.</div>
               </div>
             </div>
             <div class="value-card">
               <div class="value-icon vi-purple">🧪</div>
               <div>
-                <div class="value-vt">Battle-tested tooling</div>
-                <div class="value-vd">Editor workflows and tools refined through real development cycles.</div>
+                <div class="value-vt">Release-focused tooling</div>
+                <div class="value-vd">Guided scene setup, read-only validation, demos, and diagnostics support real project integration.</div>
               </div>
             </div>
             <div class="value-card">
               <div class="value-icon vi-blue">🎯</div>
               <div>
-                <div class="value-vt">Asset-store quality polish</div>
-                <div class="value-vd">Documentation, demos, and code held to a professional standard.</div>
+                <div class="value-vt">Customer-facing polish</div>
+                <div class="value-vd">Default UI feedback, tooltips, help controls, offline manuals, and known limitations are included.</div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -231,14 +230,13 @@
     <!-- ─── PRODUCT ──────────────────────────────────────────────────── -->
     <section id="product" class="section" aria-labelledby="product-heading">
       <div class="container">
-
         <div class="product-header">
           <p class="section-label" aria-hidden="true">The Toolkit</p>
           <h2 class="section-title" id="product-heading">RPG Combat Toolkit (TBCS)</h2>
           <p class="section-subtitle">
-            A complete, production-ready framework for grid-based, turn-based combat in Unity —
-            NodeGraph stat formulas, flexible action points, multi-tile actors, and ready-to-play
-            UGUI combat scenes.
+            A modular framework for tactical, grid-based turn-based combat in Unity 6 — with 2D and 3D
+            support, configurable action points, abilities, effects, inventory, stats, reactions, editor
+            setup tools, default UGUI presentation, and three playable combat demonstrations.
           </p>
         </div>
 
@@ -251,76 +249,77 @@
         <div class="features-grid">
           <div class="feat">
             <div class="feat-icon fi-teal">🔧</div>
-            <div class="feat-title">Complete Combat System, Day One</div>
+            <div class="feat-title">A complete combat foundation</div>
             <p class="feat-desc">
-              Movement, targeting, attacks, abilities, statuses, AP, and overlays — all wired
-              together in ready-to-play scenes. Every system implements an interface, so nothing
-              is locked in and everything is replaceable.
+              Turn flow, grids, movement, attacks, action points, abilities, effects, statuses,
+              reactions, ready actions, projectiles, combat logging, and presentation modules are
+              designed to work together while remaining replaceable.
             </p>
           </div>
           <div class="feat">
             <div class="feat-icon fi-purple">🗺️</div>
-            <div class="feat-title">One Codebase. Two Worlds.</div>
+            <div class="feat-title">2D and 3D workflows</div>
             <p class="feat-desc">
-              One toggle switches between top-down 2D and isometric 3D. Visualizers, overlays,
-              movement, and multi-tile actors (1×1 → 3×3) all adapt automatically — no duplicate code.
+              Dedicated 2D and 3D grid, cursor, overlay, animation, and ability-visualization paths
+              share the same combat architecture. The package includes examples of both styles.
             </p>
           </div>
           <div class="feat">
             <div class="feat-icon fi-blue">🎯</div>
-            <div class="feat-title">Polished Targeting, Out of the Box</div>
+            <div class="feat-title">Modular targeting and abilities</div>
             <p class="feat-desc">
-              Pluggable evaluators for any shape, range, or filter — polished zone previews, line
-              arrows, and instant valid/invalid feedback. From single strikes to large AoE spells.
+              Author targeting presets, validation rules, ranges, areas of effect, conditions,
+              effects, projectiles, and visuals. Player, AI, preview, confirmation, reaction, and
+              execution paths use the same runtime rules.
             </p>
           </div>
           <div class="feat">
             <div class="feat-icon fi-teal">💾</div>
-            <div class="feat-title">Save Mid-Combat. Resume Anywhere.</div>
+            <div class="feat-title">Extensible combat snapshots</div>
             <p class="feat-desc">
-              Support single or multiple AP pools. A snapshot layer captures the full combat state —
-              actors, turn order, statuses, inventory — so players can save and resume mid-combat safely.
+              Capture and restore supported combat state through snapshot sources and adapters.
+              TBCS provides the combat-state layer; file storage, save slots, campaign management,
+              and any required all-or-nothing transaction layer remain part of the consuming game.
             </p>
           </div>
           <div class="feat">
             <div class="feat-icon fi-purple">⚙️</div>
-            <div class="feat-title">Your Rules. No Core Edits.</div>
+            <div class="feat-title">Configure, validate, extend</div>
             <p class="feat-desc">
-              Define action costs, turn economy, cover rules, opportunity attacks, and stat interactions
-              without touching core code. Tune for classic CRPGs, tactics games, or your own system.
+              Use guided setup for a new combat scene, validate project and scene prerequisites,
+              configure supplied modules, and replace services or adapters without editing unrelated
+              core systems.
             </p>
           </div>
         </div>
 
-
-        <!-- in-box -->
         <div class="in-box-section">
           <h3 class="in-box-title">What's in the package</h3>
           <div class="in-box-grid">
-            <div class="in-box-item">✓ 8 ready-to-play combat scenes (2D + 3D)</div>
-            <div class="in-box-item">✓ Complete UGUI combat HUD</div>
-            <div class="in-box-item">✓ NodeGraph stat &amp; modifier system</div>
-            <div class="in-box-item">✓ 15+ ability templates</div>
-            <div class="in-box-item">✓ Multi-tile actor support (1×1 → 3×3)</div>
-            <div class="in-box-item">✓ GPU-instanced overlay system</div>
-            <div class="in-box-item">✓ Full save / restore snapshot system</div>
-            <div class="in-box-item">✓ PDF manual + online docs (in progress)</div>
+            <div class="in-box-item">✓ Demo Menu + 3 playable combat demos</div>
+            <div class="in-box-item">✓ Default UGUI combat, inventory &amp; party presentation</div>
+            <div class="in-box-item">✓ 2D and 3D grids, cursors, overlays &amp; visualizers</div>
+            <div class="in-box-item">✓ Modular abilities, effects, statuses &amp; reactions</div>
+            <div class="in-box-item">✓ Inventory, equipment &amp; weapon-set systems</div>
+            <div class="in-box-item">✓ Optional stats and NodeGraph formula tooling</div>
+            <div class="in-box-item">✓ Scene setup, demo setup &amp; validation tools</div>
+            <div class="in-box-item">✓ 6 offline PDF guides + README and known issues</div>
           </div>
           <div class="tvc-row">
-            <div class="tvc-block tvc-bad"><div class="tvc-label">Building from scratch</div><div class="tvc-value">3–6 months</div></div>
+            <div class="tvc-block tvc-bad"><div class="tvc-label">Starting from scratch</div><div class="tvc-value">Build every subsystem</div></div>
             <div class="tvc-arrow" aria-hidden="true">→</div>
-            <div class="tvc-block tvc-good"><div class="tvc-label">With TBCS</div><div class="tvc-value">Import. Configure. Ship.</div></div>
+            <div class="tvc-block tvc-good"><div class="tvc-label">With TBCS</div><div class="tvc-value">Configure. Validate. Extend.</div></div>
           </div>
         </div>
+
         <div class="product-cta-row">
           <a class="btn btn-primary"
              href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1"
-             target="_blank" rel="noopener noreferrer">▶ Play demo on itch.io</a>
-          <a class="btn btn-ghost" href="#" aria-disabled="true" title="Coming soon">
-            Unity Asset Store (coming soon)
+             target="_blank" rel="noopener noreferrer">▶ Play the public demo</a>
+          <a class="btn btn-ghost" href="#release-status" aria-disabled="true" title="Release in preparation">
+            Unity Asset Store release in preparation
           </a>
         </div>
-
       </div>
     </section>
 
@@ -335,17 +334,17 @@
           <div class="audience-card">
             <div class="audience-emoji">🧑‍💻</div>
             <div class="audience-title">Solo developers</div>
-            <p class="audience-desc">Your combat is ready before your art is. Get a complete, tuneable system from day one — and focus on your game, not your engine.</p>
+            <p class="audience-desc">Start from a working tactical-combat foundation and spend more time on content, rules, presentation, and the identity of your game.</p>
           </div>
           <div class="audience-card">
             <div class="audience-emoji">👥</div>
             <div class="audience-title">Small teams</div>
-            <p class="audience-desc">Designers tune encounters. Engineers extend systems. Everyone works in parallel through clean interfaces — no stepping on each other's work.</p>
+            <p class="audience-desc">Designers configure assets and encounters while engineers extend systems through explicit contracts and module boundaries.</p>
           </div>
           <div class="audience-card">
             <div class="audience-emoji">🏢</div>
             <div class="audience-title">Studios &amp; prototypers</div>
-            <p class="audience-desc">Prototype a new tactical RPG in a sprint, not a quarter. Swap out what you don't need; extend what you do.</p>
+            <p class="audience-desc">Evaluate tactical ideas with supplied defaults, then retain, replace, or remove individual systems as the project matures.</p>
           </div>
         </div>
       </div>
@@ -358,31 +357,31 @@
       <div class="container">
         <p class="section-label" aria-hidden="true">Under the hood</p>
         <h2 class="section-title" id="tech-heading">Technical highlights</h2>
-        <p class="section-subtitle">Built for engineers who care about architecture.</p>
+        <p class="section-subtitle">Built for developers who care about extension boundaries, serialization safety, and predictable setup.</p>
         <div class="tech-grid">
           <div class="tech-item">
             <div class="tech-title">Service-driven architecture</div>
-            <p class="tech-desc">Core systems (actors, stats, abilities, overlays, persistence, animation) communicate through interfaces and a service registry.</p>
+            <p class="tech-desc">Shared contracts, service registration, per-actor services, factories, providers, adapters, and module registrars keep the runtime composable.</p>
           </div>
           <div class="tech-item">
-            <div class="tech-title">2D/3D dual-mode support</div>
-            <p class="tech-desc">One settings object drives 2D vs 3D — movement, overlays, equipment, and visualizers all respect the chosen mode.</p>
+            <div class="tech-title">Granular assemblies</div>
+            <p class="tech-desc">Shared, core, default, bootstrap, extension, editor, demo, and tooling responsibilities are separated through focused assembly definitions.</p>
           </div>
           <div class="tech-item">
             <div class="tech-title">Modular abilities pipeline</div>
-            <p class="tech-desc">Abilities defined as pipelines: targeting, validation, execution, effects, and visuals — easy to extend or replace each stage.</p>
+            <p class="tech-desc">Targeting, validation, execution, effects, reactions, AI use, previews, projectiles, and presentation are authored through reusable modules.</p>
           </div>
           <div class="tech-item">
-            <div class="tech-title">GPU-instanced overlays</div>
-            <p class="tech-desc">Attack and range previews use instanced meshes and depth-aware shaders for clean, performant visuals.</p>
+            <div class="tech-title">Action and reaction control</div>
+            <p class="tech-desc">Normal actions, delayed actions, opportunity attacks, triggered reactions, and ready actions are handled through explicit queues and turn ownership.</p>
           </div>
           <div class="tech-item">
-            <div class="tech-title">Save-ready combat loop</div>
-            <p class="tech-desc">Combat snapshots capture turn order, actors, statuses, inventory &amp; equipment for safe mid-combat restores.</p>
+            <div class="tech-title">Combat snapshot layer</div>
+            <p class="tech-desc">Stock adapters cover turn order, actors, grid objects, health, action points, effects, inventory, equipment, and parties, with documented extension requirements.</p>
           </div>
           <div class="tech-item">
-            <div class="tech-title">Extensible by design</div>
-            <p class="tech-desc">Everything built to be swapped: stat systems, health, animation drivers, inventory, AI, and beyond.</p>
+            <div class="tech-title">Customer-facing diagnostics</div>
+            <p class="tech-desc">The scene validator reports missing services, actors, factions, project requirements, EventSystem setup, TMP resources, URP, and tooltip configuration.</p>
           </div>
         </div>
       </div>
@@ -396,32 +395,29 @@
         <div class="docs-inner">
           <div>
             <p class="section-label" aria-hidden="true">Documentation</p>
-            <h2 class="section-title" id="docs-heading">Everything you need to ship.</h2>
-            <p class="section-subtitle">TBCS ships with documentation to help you onboard quickly, understand the architecture, and customize systems to your game.</p>
+            <h2 class="section-title" id="docs-heading">Offline guidance ships with the asset.</h2>
+            <p class="section-subtitle">The package includes a structured documentation set for installation, first setup, architecture, common workflows, troubleshooting, and reference material.</p>
             <div class="docs-list" role="list">
               <div class="docs-item" role="listitem">
                 <div class="docs-item-icon vi-teal">📘</div>
-                PDF manual with setup &amp; architecture overview
+                Quick Start and complete User Manual
               </div>
               <div class="docs-item" role="listitem">
-                <div class="docs-item-icon vi-blue">🌐</div>
-                Online docs / wiki with guides &amp; API notes
+                <div class="docs-item-icon vi-blue">🧭</div>
+                Cookbook, FAQ, and Troubleshooting guide
               </div>
               <div class="docs-item" role="listitem">
                 <div class="docs-item-icon vi-purple">🧩</div>
-                Focused chapters for stats, abilities, overlays &amp; persistence
+                Appendices, README, changelog, and known limitations
               </div>
             </div>
           </div>
-          <!-- Replace XXXXXXXX with your Formspree form ID at formspree.io (free) -->
-          <div class="notify-box">
-            <p class="notify-label">🔔 Get notified at launch</p>
-            <p class="notify-sub">Be first to know when TBCS hits the Unity Asset Store — plus early-bird pricing for the waitlist.</p>
-            <form class="notify-form" action="https://formspree.io/f/XXXXXXXX" method="POST">
-              <input type="email" name="email" class="notify-input" placeholder="your@email.com" required aria-label="Email for launch notification">
-              <button type="submit" class="btn btn-primary btn-sm">Notify me</button>
-            </form>
-            <p class="notify-fine">No spam. Unsubscribe anytime.</p>
+
+          <div class="notify-box" id="release-status">
+            <p class="notify-label">🚀 Version 1.0 release status</p>
+            <p class="notify-sub">The Unity Asset Store release is in final validation and listing preparation. The itch.io build is a public pre-release demonstration and may differ from the final version 1.0 package.</p>
+            <a class="btn btn-primary btn-sm" href="mailto:arkana.mechanika.studios@gmail.com?subject=RPG%20Combat%20Toolkit%20release">Contact the studio</a>
+            <p class="notify-fine">No release date or introductory price is announced until final submission is complete.</p>
           </div>
         </div>
       </div>
@@ -434,7 +430,7 @@
       <div class="container">
         <p class="section-label" aria-hidden="true">Media</p>
         <h2 class="section-title" id="media-heading">See it in action.</h2>
-        <p class="section-subtitle" style="margin-bottom:2rem;">A glimpse of the toolkit at work.</p>
+        <p class="section-subtitle" style="margin-bottom:2rem;">The public media shows the toolkit and its demonstrations during development; the final Asset Store package may include later refinements.</p>
 
         <div class="media-grid" role="list" aria-label="Screenshots gallery">
           <figure class="shot" role="listitem">
@@ -460,21 +456,19 @@
         <div style="text-align:center; margin-top:1.5rem;">
           <a class="btn btn-primary"
              href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1"
-             target="_blank" rel="noopener noreferrer">▶ Play the demo on itch.io</a>
+             target="_blank" rel="noopener noreferrer">▶ Play the public demo on itch.io</a>
         </div>
       </div>
     </section>
 
-  </main>
-
     <div class="divider"></div>
 
-    <!-- ─── TUTORIALS ──────────────────────────────────────────────────── -->
+    <!-- ─── TUTORIALS ───────────────────────────────────────────────── -->
     <section id="tutorials" class="section section-bg-alt" aria-labelledby="tutorials-heading">
       <div class="container">
         <p class="section-label" aria-hidden="true">Tutorials</p>
         <h2 class="section-title" id="tutorials-heading">Learn step by step.</h2>
-        <p class="section-subtitle" style="margin-bottom:2.5rem;">Follow along with our video series and master RPG Combat Toolkit at your own pace.</p>
+        <p class="section-subtitle" style="margin-bottom:2.5rem;">The existing video series demonstrates core workflows. Menu names and details may differ slightly from the final version 1.0 interface; the packaged Quick Start is the current reference.</p>
 
         <div class="tutorials-grid" role="list" aria-label="Tutorial videos">
           <div class="tutorial-card" role="listitem">
@@ -531,59 +525,86 @@
       </div>
     </section>
 
-  <!-- faq -->
-  <section class="section section-bg-alt" aria-labelledby="faq-heading">
-    <div class="container">
-      <p class="section-label" aria-hidden="true">FAQ</p>
-      <h2 class="section-title" id="faq-heading">Common questions</h2>
-      <div class="faq-grid">
-        <div class="faq-item"><div class="faq-q">Does it work with my existing save system?</div><p class="faq-a">Yes. The persistence layer uses plain interfaces — swap in your own serializer without touching any core code.</p></div>
-        <div class="faq-item"><div class="faq-q">Is it compatible with DOTween or other animation tools?</div><p class="faq-a">Yes. The animation driver is a swappable interface. Plug in DOTween, LeanTween, or your own solution freely.</p></div>
-        <div class="faq-item"><div class="faq-q">Can I use this for a pixel-art 2D game?</div><p class="faq-a">Absolutely. TBCS is renderer-agnostic — visuals are fully decoupled from the combat logic. Use any art style.</p></div>
-        <div class="faq-item"><div class="faq-q">Does it support multiplayer?</div><p class="faq-a">Not out of the box, but the architecture separates state from presentation — a solid foundation if you plan to add netcode later.</p></div>
-        <div class="faq-item"><div class="faq-q">Which Unity versions are supported?</div><p class="faq-a">Unity 2021.3 LTS and above, including Unity 6. Both URP and Built-in render pipelines are supported.</p></div>
-        <div class="faq-item"><div class="faq-q">When will it be on the Unity Asset Store?</div><p class="faq-a">We're targeting a 2026 launch. Join the notify list above to get early-bird pricing the moment it goes live.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ─── CONTACT ──────────────────────────────────────────────────── -->
-  <section id="contact" class="section section-bg-alt" aria-labelledby="contact-heading">
-    <div class="container">
-      <div class="contact-inner">
-        <div>
-          <p class="section-label" aria-hidden="true">Get in touch</p>
-          <h2 class="section-title" id="contact-heading">Contact</h2>
-          <p class="contact-note">For partnership inquiries, press kits, or technical questions:</p>
-          <div class="contact-email">
-            <a href="mailto:arkana.mechanika.studios@gmail.com">
-              arkana.mechanika.studios@gmail.com
-            </a>
+    <!-- ─── FAQ ─────────────────────────────────────────────────────── -->
+    <section class="section section-bg-alt" aria-labelledby="faq-heading">
+      <div class="container">
+        <p class="section-label" aria-hidden="true">FAQ</p>
+        <h2 class="section-title" id="faq-heading">Common questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="faq-q">Which Unity versions are supported?</div>
+            <p class="faq-a">Version 1.0 requires Unity 6.0 LTS or newer. It has been validated with Unity 6000.0.79f1, 6000.3.8f1, and 6000.5.3f1. Unity 2022.x and Unity 6.6 or newer are not claimed for version 1.0.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Which packages and render pipeline are required?</div>
+            <p class="faq-a">The Unity Input System is required. The default runtime UI uses UGUI and TextMesh Pro. The supplied demos and presentation assets are authored for URP; projects using another render pipeline must provide and validate equivalent presentation assets.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Does it work with my existing save system?</div>
+            <p class="faq-a">TBCS provides an extensible combat snapshot layer, not file IO, save slots, or campaign save management. Connect the snapshot API to your storage solution. Restore is deterministic by subsystem, but it is not a single global transaction across every custom adapter.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Can I use it for a pixel-art 2D game?</div>
+            <p class="faq-a">Yes. The combat architecture supports 2D and 3D workflows. The package includes a 2D demonstration, 2D grid and visual components, while your own art and presentation remain under your control.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Can I replace the animation or other default systems?</div>
+            <p class="faq-a">Yes. Animation, health, stats, actions, item catalogs, parties, persistence, UI services, and other integrations expose extension seams. Third-party animation tools such as DOTween require an appropriate custom driver or adapter rather than being bundled integrations.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Does it include multiplayer?</div>
+            <p class="faq-a">No. Networking and multiplayer synchronization are not included in version 1.0.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Does the package contain AI-assisted content?</div>
+            <p class="faq-a">Some default, sample, and demonstration art and audio began as generative-AI-assisted source material and was subsequently modified and integrated by Arkana Mechanika Studios. It is not required by the toolkit architecture. The package includes a detailed Third-Party Notices disclosure, which will be mirrored in the Asset Store listing.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">When will it be on the Unity Asset Store?</div>
+            <p class="faq-a">Version 1.0 is in final validation and listing preparation. A public release date and price will be announced after the exact submission package has completed the remaining release gates.</p>
           </div>
         </div>
-
-        <nav class="social-list" aria-label="Social media links">
-          <div class="social-item social-item-disabled">
-            <div class="social-icon vi-blue" aria-hidden="true">𝕏</div>
-            <span>Twitter / X</span>
-            <span class="pill pill-amber" style="margin-left:auto;font-size:0.7rem;">Coming soon</span>
-          </div>
-          <div class="social-item social-item-disabled">
-            <div class="social-icon" style="background:rgba(251,71,71,0.12);border:1px solid rgba(251,71,71,0.18);" aria-hidden="true">▶</div>
-            <span>YouTube</span>
-            <span class="pill pill-amber" style="margin-left:auto;font-size:0.7rem;">Coming soon</span>
-          </div>
-          <div class="social-item social-item-disabled">
-            <div class="social-icon vi-purple" aria-hidden="true">💬</div>
-            <span>Discord</span>
-            <span class="pill pill-amber" style="margin-left:auto;font-size:0.7rem;">Coming soon</span>
-          </div>
-        </nav>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ─── CONTACT ──────────────────────────────────────────────────── -->
+    <section id="contact" class="section section-bg-alt" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-inner">
+          <div>
+            <p class="section-label" aria-hidden="true">Get in touch</p>
+            <h2 class="section-title" id="contact-heading">Contact</h2>
+            <p class="contact-note">For release questions, support, partnership inquiries, or press information:</p>
+            <div class="contact-email">
+              <a href="mailto:arkana.mechanika.studios@gmail.com">
+                arkana.mechanika.studios@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <nav class="social-list" aria-label="Social media links">
+            <div class="social-item social-item-disabled">
+              <div class="social-icon vi-blue" aria-hidden="true">𝕏</div>
+              <span>Twitter / X</span>
+              <span class="pill pill-amber" style="margin-left:auto;font-size:0.7rem;">Coming later</span>
+            </div>
+            <a class="social-item" href="#tutorials">
+              <div class="social-icon" style="background:rgba(251,71,71,0.12);border:1px solid rgba(251,71,71,0.18);" aria-hidden="true">▶</div>
+              <span>YouTube tutorials</span>
+              <span class="pill pill-amber" style="margin-left:auto;font-size:0.7rem;">Watch now</span>
+            </a>
+            <div class="social-item social-item-disabled">
+              <div class="social-icon vi-purple" aria-hidden="true">💬</div>
+              <span>Discord</span>
+              <span class="pill pill-amber" style="margin-left:auto;font-size:0.7rem;">Coming later</span>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- ─── FOOTER ───────────────────────────────────────────────────── -->
   <footer class="footer">
@@ -626,7 +647,6 @@
         btn.classList.toggle('hamburger-open', open);
         btn.setAttribute('aria-expanded', open);
       });
-      // Close menu when a link is clicked
       links.querySelectorAll('a').forEach(function(a) {
         a.addEventListener('click', function() {
           links.classList.remove('nav-links-open');
