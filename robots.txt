@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arkana-mechanika-studios.github.io/sitemap.xml
