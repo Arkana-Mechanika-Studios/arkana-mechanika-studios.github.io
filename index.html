@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RPG Combat Toolkit — Modular Turn-Based Combat for Unity 6</title>
-  <meta name="description" content="RPG Combat Toolkit is a modular Unity 6 framework for tactical, grid-based turn-based combat in 2D and 3D, with editor setup tools, default UI, demos, documentation, and support.">
+  <title>RPG Combat Toolkit — Complete Turn-Based Combat Framework for Unity 6</title>
+  <meta name="description" content="RPG Combat Toolkit is a source-included Unity 6 framework for 2D and 3D grid combat: turns, actions, movement, attacks, abilities, reactions, effects, inventory, stats, persistence, UI, AI, editor tools, demos, and documentation.">
   <meta name="theme-color" content="#061019">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://arkana-mechanika-studios.github.io/">
@@ -13,20 +13,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="/assets/intro_screen2.png">
+  <link rel="preload" as="image" href="/assets/showcase/demo-dungeon-combat.webp" type="image/webp">
   <link rel="stylesheet" href="/style.css">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Arkana Mechanika Studios">
   <meta property="og:url" content="https://arkana-mechanika-studios.github.io/">
-  <meta property="og:title" content="RPG Combat Toolkit — Modular Turn-Based Combat for Unity 6">
-  <meta property="og:description" content="A professional combat foundation for tactical RPG and CRPG projects: 2D/3D grids, actions, abilities, reactions, inventory, persistence adapters, editor tools, demos, and documentation.">
-  <meta property="og:image" content="https://arkana-mechanika-studios.github.io/assets/tbcs-banner.png">
-  <meta property="og:image:alt" content="RPG Combat Toolkit for Unity">
+  <meta property="og:title" content="RPG Combat Toolkit — Complete Turn-Based Combat Framework for Unity 6">
+  <meta property="og:description" content="Build 2D or 3D tactical combat with source-included runtime systems, default UI, editor tools, three demos, six PDF guides, and official support.">
+  <meta property="og:image" content="https://arkana-mechanika-studios.github.io/assets/showcase/demo-dungeon-combat.webp">
+  <meta property="og:image:alt" content="RPG Combat Toolkit 3D dungeon combat demonstration">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="RPG Combat Toolkit — Modular Turn-Based Combat for Unity 6">
-  <meta name="twitter:description" content="A professional combat foundation for tactical RPG and CRPG projects.">
-  <meta name="twitter:image" content="https://arkana-mechanika-studios.github.io/assets/tbcs-banner.png">
+  <meta name="twitter:title" content="RPG Combat Toolkit for Unity 6">
+  <meta name="twitter:description" content="Turns, grids, movement, attacks, abilities, reactions, inventory, stats, persistence, UI, AI, editor tools, and demos.">
+  <meta name="twitter:image" content="https://arkana-mechanika-studios.github.io/assets/showcase/demo-dungeon-combat.webp">
 
   <script type="application/ld+json">
   {
@@ -37,9 +37,9 @@
     "softwareVersion": "1.0.0",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Unity Editor",
-    "description": "A modular framework for tactical, grid-based turn-based combat in Unity 6 with 2D and 3D support, editor setup tools, default UGUI presentation, demonstration scenes, documentation, and technical support.",
+    "description": "A source-included modular turn-based combat framework for Unity 6 with 2D and 3D grids, actions, attacks, abilities, reactions, effects, inventory, stats, persistence adapters, AI, default UGUI, editor tools, demonstrations, and documentation.",
     "softwareRequirements": "Unity 6.0 LTS; Unity Input System; UGUI; TextMesh Pro; URP for supplied demos and presentation assets",
-    "image": "https://arkana-mechanika-studios.github.io/assets/tbcs-banner.png",
+    "image": "https://arkana-mechanika-studios.github.io/assets/showcase/demo-dungeon-combat.webp",
     "publisher": {
       "@type": "Organization",
       "name": "Arkana Mechanika Studios",
@@ -57,276 +57,232 @@
     <nav class="nav container" aria-label="Primary navigation">
       <a class="brand" href="/" aria-label="Arkana Mechanika Studios home">
         <img src="/assets/logo.png" alt="" width="38" height="38">
-        <span><strong>Arkana Mechanika</strong><small>Unity development tools</small></span>
+        <span><strong>Arkana Mechanika</strong><small>RPG Combat Toolkit</small></span>
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle>
-        <span class="sr-only">Open navigation</span>
-        <span></span><span></span><span></span>
+        <span class="sr-only">Open navigation</span><span></span><span></span><span></span>
       </button>
 
       <div class="nav-menu" id="nav-menu" data-nav-menu>
-        <a href="#proof">Showcase</a>
-        <a href="#systems">Systems</a>
-        <a href="#workflow">Workflow</a>
-        <a href="#media">Media</a>
-        <a href="#faq">FAQ</a>
+        <a href="#included">What you get</a>
+        <a href="#showcase">Screenshots</a>
+        <a href="#examples">Examples</a>
+        <a href="/features/">All features</a>
+        <a href="#demos">Demos</a>
+        <a href="#requirements">Requirements</a>
         <a href="/support/">Support</a>
-        <a class="button button--small button--primary nav-demo" href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1" target="_blank" rel="noopener noreferrer">
-          Play demo <svg aria-hidden="true"><use href="/assets/icons.svg#external"></use></svg>
-        </a>
+        <a class="button button--small button--primary nav-demo" href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1" target="_blank" rel="noopener noreferrer">Play demo <svg aria-hidden="true"><use href="/assets/icons.svg#external"></use></svg></a>
       </div>
     </nav>
   </header>
 
   <main id="main">
-    <section class="hero section">
+    <section class="hero section product-hero">
       <div class="container hero-layout">
         <div class="hero-copy reveal">
-          <p class="eyebrow"><span></span> Tactical RPG development, accelerated</p>
-          <h1>Stop building combat <em>from scratch.</em></h1>
+          <p class="eyebrow"><span></span> Source-included Unity 6 combat framework</p>
+          <h1>Build a tactical RPG combat system without rebuilding <em>every subsystem.</em></h1>
           <p class="hero-lede">
-            RPG Combat Toolkit gives Unity developers a modular foundation for grid-based, turn-based combat—
-            from turns and targeting to abilities, reactions, inventory, combat snapshots, default UI, and editor tooling.
+            RPG Combat Toolkit provides the working combat foundation: <strong>2D and 3D grids, turn order, action points, movement, attacks, modular abilities, reactions, effects, inventory, equipment, stats, AI, combat snapshots, default UGUI, editor tools, and three playable demos.</strong>
           </p>
           <div class="hero-actions">
-            <a class="button button--primary" href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1" target="_blank" rel="noopener noreferrer">
-              <svg aria-hidden="true"><use href="/assets/icons.svg#play"></use></svg> Play the public demo
-            </a>
-            <a class="button button--secondary" href="#proof">Explore the toolkit</a>
+            <a class="button button--primary" href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="/assets/icons.svg#play"></use></svg> Play the public demo</a>
+            <a class="button button--secondary" href="/features/">Read the full feature list</a>
           </div>
-          <div class="hero-status" aria-label="Release and compatibility summary">
-            <span class="status-pill">Version 1.0 release candidate</span>
-            <span>Unity 6.0 LTS minimum</span>
-            <span>2D + 3D</span>
-            <span>Source included</span>
-          </div>
-        </div>
-
-        <div class="hero-stage reveal" aria-label="RPG Combat Toolkit preview">
-          <div class="window-frame window-frame--hero">
-            <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>RPG Combat Toolkit</span></div>
-            <img src="/assets/intro_screen2.png" alt="RPG Combat Toolkit combat demonstration" width="960" height="720" fetchpriority="high">
-          </div>
-          <div class="stage-chip stage-chip--top"><svg aria-hidden="true"><use href="/assets/icons.svg#grid"></use></svg> 2D + 3D workflows</div>
-          <div class="stage-chip stage-chip--bottom"><svg aria-hidden="true"><use href="/assets/icons.svg#tools"></use></svg> Setup + validation tools</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="trust-strip" aria-label="Product highlights">
-      <div class="container trust-list">
-        <span><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Unity 6.0 LTS minimum</span>
-        <span><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Demo Menu + 3 combat demos</span>
-        <span><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> 6 offline PDF guides</span>
-        <span><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Official email support</span>
-      </div>
-    </section>
-
-    <section class="section" id="proof">
-      <div class="container">
-        <div class="section-heading section-heading--center reveal">
-          <p class="eyebrow"><span></span> Product proof</p>
-          <h2>A framework you can see, configure, and extend.</h2>
-          <p>Gameplay systems and editor workflows are presented together, because a professional toolkit has to work on both sides of the Play button.</p>
-        </div>
-
-        <div class="proof-grid">
-          <article class="proof-card proof-card--wide reveal">
-            <a class="proof-image" href="/assets/screenshot-1.png" target="_blank" rel="noopener" aria-label="Open the tactical combat screenshot at full size">
-              <img src="/assets/screenshot-1.png" alt="Tactical combat scene with grid, actors, overlays, and user interface" loading="lazy" width="1280" height="800">
-              <span class="image-action">Open full size <svg aria-hidden="true"><use href="/assets/icons.svg#external"></use></svg></span>
-            </a>
-            <div class="proof-copy">
-              <p class="card-kicker">Gameplay foundation</p>
-              <h3>Combat that communicates every decision.</h3>
-              <p>Turn ownership, action points, movement paths, targeting feedback, initiative, statuses, and contextual UI remain visible throughout the encounter.</p>
-            </div>
-          </article>
-
-          <article class="proof-card reveal">
-            <a class="proof-image proof-image--compact" href="https://www.youtube.com/watch?v=DLT_cVnJw1I" target="_blank" rel="noopener noreferrer" aria-label="Watch the Creating Actors tutorial">
-              <img src="https://i.ytimg.com/vi/DLT_cVnJw1I/hqdefault.jpg" alt="RPG Combat Toolkit Create Actor workflow tutorial thumbnail" loading="lazy" width="480" height="360">
-              <span class="image-action">Actor workflow <svg aria-hidden="true"><use href="/assets/icons.svg#play"></use></svg></span>
-            </a>
-            <div class="proof-copy">
-              <p class="card-kicker">Editor workflow</p>
-              <h3>Create and configure actors without hidden setup.</h3>
-              <p>Guided editor tools expose the required components while preserving the project’s own presentation and rules.</p>
-            </div>
-          </article>
-
-          <article class="proof-card reveal">
-            <a class="proof-image proof-image--compact" href="/assets/tbcs-banner.png" target="_blank" rel="noopener" aria-label="Open the RPG Combat Toolkit overview image">
-              <img src="/assets/tbcs-banner.png" alt="RPG Combat Toolkit overview showing gameplay and editor systems" loading="lazy" width="1200" height="525">
-              <span class="image-action">Toolkit overview <svg aria-hidden="true"><use href="/assets/icons.svg#external"></use></svg></span>
-            </a>
-            <div class="proof-copy">
-              <p class="card-kicker">One toolkit, multiple layers</p>
-              <h3>Runtime systems, authoring tools, and presentation modules.</h3>
-              <p>Use the supplied defaults together, or replace individual services and adapters as your project matures.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--surface" id="systems">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="eyebrow"><span></span> Core systems</p>
-          <h2>The combat foundation, organized into replaceable systems.</h2>
-          <p>Start with working defaults. Keep the parts that fit. Replace the parts that define your game.</p>
-        </div>
-
-        <div class="system-grid">
-          <article class="system-card reveal"><div class="icon-box"><svg aria-hidden="true"><use href="/assets/icons.svg#turn"></use></svg></div><h3>Turn and action flow</h3><p>Initiative or faction turns, action queues, delay behavior, interrupts, end-turn ownership, and configurable action-point costs.</p></article>
-          <article class="system-card reveal"><div class="icon-box icon-box--blue"><svg aria-hidden="true"><use href="/assets/icons.svg#grid"></use></svg></div><h3>Grid and movement</h3><p>2D and 3D square grids, pathfinding, facing, multi-cell footprints, occupancy, movement costs, and range previews.</p></article>
-          <article class="system-card reveal"><div class="icon-box icon-box--purple"><svg aria-hidden="true"><use href="/assets/icons.svg#target"></use></svg></div><h3>Abilities and targeting</h3><p>Reusable targeting presets, conditions, areas of effect, projectiles, previews, AI evaluation, and final-cast validation.</p></article>
-          <article class="system-card reveal"><div class="icon-box"><svg aria-hidden="true"><use href="/assets/icons.svg#bolt"></use></svg></div><h3>Reactions and ready actions</h3><p>Opportunity attacks, triggered reactions, threat zones, readied attacks, abilities, and dedicated reaction processing.</p></article>
-          <article class="system-card reveal"><div class="icon-box icon-box--blue"><svg aria-hidden="true"><use href="/assets/icons.svg#bag"></use></svg></div><h3>Inventory, equipment, and stats</h3><p>Drag-and-drop inventory, equipment and weapon sets, optional NodeGraph formulas, health, statuses, effects, and modifiers.</p></article>
-          <article class="system-card reveal"><div class="icon-box icon-box--purple"><svg aria-hidden="true"><use href="/assets/icons.svg#snapshot"></use></svg></div><h3>Combat snapshots</h3><p>Adapters for turn order, actors, grid objects, health, action points, effects, parties, inventory, and equipment.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="workflow">
-      <div class="container">
-        <div class="section-heading section-heading--center reveal">
-          <p class="eyebrow"><span></span> Customer workflow</p>
-          <h2>From an empty scene to a validated combat setup.</h2>
-          <p>The customer journey is supported by guided setup, clear prerequisites, and read-only validation before Play Mode.</p>
-        </div>
-
-        <ol class="workflow-grid">
-          <li class="workflow-card reveal">
-            <span class="step-number">01</span>
-            <div class="workflow-visual workflow-visual--setup" aria-hidden="true"><span>2D defaults</span><span>3D defaults</span><span>Generate grid</span></div>
-            <h3>Set up the scene</h3>
-            <p>Choose the 2D or 3D defaults and create the selected camera, grid, manager, bootstrap, cursor, and preview modules.</p>
-          </li>
-          <li class="workflow-card reveal">
-            <span class="step-number">02</span>
-            <div class="workflow-visual workflow-visual--configure" aria-hidden="true"><i></i><i></i><i></i><b>Actor + rules</b></div>
-            <h3>Configure actors and rules</h3>
-            <p>Author actors, actions, abilities, equipment, stats, turn behavior, and combat rules through explicit assets and components.</p>
-          </li>
-          <li class="workflow-card reveal">
-            <span class="step-number">03</span>
-            <div class="workflow-visual workflow-visual--validate" aria-hidden="true"><span>✓ Input System</span><span>✓ Opposing factions</span><span>✓ Scene services</span></div>
-            <h3>Validate before Play Mode</h3>
-            <p>Detect missing dependencies, duplicate services, actor/faction problems, EventSystem setup, TMP resources, URP, and tooltip issues.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section section--surface architecture">
-      <div class="container architecture-layout">
-        <div class="architecture-copy reveal">
-          <p class="eyebrow"><span></span> Extensibility</p>
-          <h2>A modular system map, not a sealed template.</h2>
-          <p>Shared contracts keep the runtime layers explicit. Defaults, bootstrap assets, and optional extensions sit on top without forcing every project into one implementation.</p>
-          <ul class="check-list">
-            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Interface-driven systems and per-actor capabilities</li>
-            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Providers, factories, registrars, catalogs, and adapters</li>
-            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Focused runtime, editor, extension, and demo assemblies</li>
-            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Source code supplied for inspection and extension</li>
+          <ul class="hero-facts" aria-label="Key product facts">
+            <li>Unity 6.0 LTS minimum</li>
+            <li>2D and 3D workflows</li>
+            <li>Source code included</li>
+            <li>Demo Menu + 3 combat demos</li>
+            <li>6 offline PDF guides</li>
+            <li>Official email support</li>
           </ul>
         </div>
 
-        <div class="system-map reveal" role="img" aria-label="Diagram showing Shared contracts supporting Core runtime, Defaults, Bootstrap, Extensions, and project code">
-          <div class="map-node map-node--shared">Shared contracts</div>
-          <div class="map-lines" aria-hidden="true"><i></i><i></i><i></i></div>
-          <div class="map-row"><span>Core runtime</span><span>Defaults</span><span>Extensions</span></div>
-          <div class="map-lines map-lines--short" aria-hidden="true"><i></i><i></i></div>
-          <div class="map-row map-row--bottom"><span>Bootstrap</span><span>Your project</span></div>
-        </div>
+        <figure class="hero-product-shot reveal">
+          <a href="/assets/showcase/demo-dungeon-combat.webp" target="_blank" rel="noopener" aria-label="Open the dungeon combat screenshot at full size">
+            <img src="/assets/showcase/demo-dungeon-combat.webp" alt="RPG Combat Toolkit 3D dungeon battle showing actors, initiative queue, party HUD, action buttons, combat log, and End Turn control" width="640" height="359" fetchpriority="high">
+          </a>
+          <figcaption><strong>Demo 1 — 3D dungeon combat</strong><span>Party selection, initiative queue, actions, abilities, equipment access, combat log, and turn control.</span></figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section" id="media">
+    <section class="trust-strip" aria-label="Product scope summary">
+      <div class="container trust-list">
+        <span><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Runtime combat framework</span>
+        <span><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Default implementations and UI</span>
+        <span><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Editor setup and validation</span>
+        <span><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Demos, documentation, and support</span>
+      </div>
+    </section>
+
+    <section class="section" id="included">
       <div class="container">
         <div class="section-heading reveal">
-          <p class="eyebrow"><span></span> Gameplay and editor workflows</p>
-          <h2>See the combat loop. Then inspect how it is built.</h2>
-          <p>The public demo and tutorial series show the toolkit at different stages of development. The packaged Quick Start remains the current version 1.0 reference.</p>
+          <p class="eyebrow"><span></span> What you are buying</p>
+          <h2>A complete combat package, not a single grid or turn manager.</h2>
+          <p>The asset is organized as a modular framework with working defaults, optional systems, customer-facing tools, examples, and documentation.</p>
         </div>
 
-        <div class="media-layout">
-          <article class="video-feature reveal">
-            <button class="video-lite" type="button" data-video="S3CrQBJCQlE" aria-label="Play the RPG Combat Toolkit trailer">
-              <img src="https://i.ytimg.com/vi/S3CrQBJCQlE/hqdefault.jpg" alt="RPG Combat Toolkit trailer thumbnail" loading="lazy" width="480" height="360">
-              <span class="play-button"><svg aria-hidden="true"><use href="/assets/icons.svg#play"></use></svg></span>
-            </button>
-            <div class="video-copy"><p class="card-kicker">Prelaunch trailer</p><h3>Gameplay first.</h3><p>A focused view of the combat presentation, controls, targeting, movement, and encounter feedback.</p></div>
-          </article>
-
-          <aside class="media-panel reveal">
-            <p class="card-kicker">What the final package adds</p>
-            <ul class="check-list check-list--compact">
-              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Demo Menu and three combat demos</li>
-              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> 2D and 3D example workflows</li>
-              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Editor setup and scene validation</li>
-              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Default UGUI, inventory, and party presentation</li>
-              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Six offline PDF guides</li>
-              <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg> Official technical support route</li>
-            </ul>
-            <a class="button button--primary button--block" href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1" target="_blank" rel="noopener noreferrer">Play the public demo</a>
-          </aside>
+        <div class="included-grid">
+          <article class="included-card reveal"><span class="included-number">01</span><h3>Core combat runtime</h3><p>Actors, states, turns, rounds, action queues, action points, grids, movement, attacks, targeting, reactions, effects, statuses, health, combat logging, projectiles, and persistence contracts.</p></article>
+          <article class="included-card reveal"><span class="included-number">02</span><h3>Optional gameplay modules</h3><p>Modular abilities, inventory, equipment, weapon sets, parties, statistics, NodeGraph formulas, animation, audio, overlays, highlights, health bars, and ranged-path previews.</p></article>
+          <article class="included-card reveal"><span class="included-number">03</span><h3>Default runtime presentation</h3><p>UGUI panels for actors, hostiles, actions, abilities, ready actions, action points, initiative, rounds, party members, statuses, combat log, inventory, equipment, weapon sets, tooltips, banners, cursor information, and floating text.</p></article>
+          <article class="included-card reveal"><span class="included-number">04</span><h3>Editor tools</h3><p>2D/3D scene setup, actor creation, grid generation, scene validation, tooltip installation, demo setup, spawner guidance, and visual NodeGraph authoring.</p></article>
+          <article class="included-card reveal"><span class="included-number">05</span><h3>Three combat demonstrations</h3><p>A full 3D dungeon presentation, a second 3D desert presentation with action points and inventory/equipment, and a retro 2D combat example—plus the Demo Menu.</p></article>
+          <article class="included-card reveal"><span class="included-number">06</span><h3>Documentation and support</h3><p>Quick Start, User Manual, Cookbook, FAQ, Troubleshooting guide, Appendices, README, changelog, known issues, third-party notices, and an official support route.</p></article>
         </div>
 
-        <div class="tutorial-header reveal"><h3>Start with the core workflow</h3><span>Three practical walkthroughs</span></div>
-        <div class="tutorial-grid">
-          <a class="tutorial-card reveal" href="https://www.youtube.com/watch?v=bbx2s-UHMsg" target="_blank" rel="noopener noreferrer"><img src="https://i.ytimg.com/vi/bbx2s-UHMsg/hqdefault.jpg" alt="Your first combat scene tutorial thumbnail" loading="lazy" width="480" height="360"><span><small>Episode 01</small><strong>Your first combat scene</strong></span></a>
-          <a class="tutorial-card reveal" href="https://www.youtube.com/watch?v=61uMNZN9s_s" target="_blank" rel="noopener noreferrer"><img src="https://i.ytimg.com/vi/61uMNZN9s_s/hqdefault.jpg" alt="Grid and Grid Manager tutorial thumbnail" loading="lazy" width="480" height="360"><span><small>Episode 02</small><strong>The Grid and Grid Manager</strong></span></a>
-          <a class="tutorial-card reveal" href="https://www.youtube.com/watch?v=DLT_cVnJw1I" target="_blank" rel="noopener noreferrer"><img src="https://i.ytimg.com/vi/DLT_cVnJw1I/hqdefault.jpg" alt="Creating Actors tutorial thumbnail" loading="lazy" width="480" height="360"><span><small>Episode 03</small><strong>Creating actors</strong></span></a>
+        <div class="package-structure reveal">
+          <div><strong>Shared contracts</strong><span>Interfaces, data contracts, utilities, input abstraction, stable IDs, and extension seams.</span></div>
+          <div><strong>Core</strong><span>The combat runtime: actors, turns, actions, grids, movement, attacks, reactions, health, persistence, and managers.</span></div>
+          <div><strong>Defaults</strong><span>Ready-to-use implementations, UI, visual presentation, factories, settings, prefabs, and editor helpers.</span></div>
+          <div><strong>Extensions</strong><span>Abilities, inventory, stats, animation, audio, parties, overlays, and other optional modules.</span></div>
+          <div><strong>Demos</strong><span>Three playable combat examples and reusable sample content that demonstrate different presentations.</span></div>
         </div>
       </div>
     </section>
 
-    <section class="section section--surface" id="docs">
-      <div class="container docs-layout">
-        <div class="docs-copy reveal">
-          <p class="eyebrow"><span></span> Documentation and support</p>
-          <h2>More than a runtime library.</h2>
-          <p>Version 1.0 ships with a structured offline documentation set and a clear support policy, so customers know where to start and what information to provide when they are blocked.</p>
-          <div class="docs-actions"><a class="button button--primary" href="/support/"><svg aria-hidden="true"><use href="/assets/icons.svg#mail"></use></svg> View support policy</a><a class="button button--secondary" href="#faq">Review requirements</a></div>
+    <section class="section section--surface" id="showcase">
+      <div class="container">
+        <div class="section-heading section-heading--center reveal">
+          <p class="eyebrow"><span></span> Actual toolkit screenshots</p>
+          <h2>Six concrete views of what is included.</h2>
+          <p>These are not concept mockups. They show the supplied demos and editor tools in the version 1.0 release line.</p>
         </div>
-        <div class="docs-grid reveal">
-          <article><svg aria-hidden="true"><use href="/assets/icons.svg#book"></use></svg><h3>Quick Start</h3><p>Installation, dependencies, demos, and the first combat scene.</p></article>
-          <article><svg aria-hidden="true"><use href="/assets/icons.svg#book"></use></svg><h3>User Manual</h3><p>Core systems, architecture, configuration, and extension guidance.</p></article>
-          <article><svg aria-hidden="true"><use href="/assets/icons.svg#book"></use></svg><h3>Cookbook</h3><p>Focused workflows and practical examples for common tasks.</p></article>
-          <article><svg aria-hidden="true"><use href="/assets/icons.svg#book"></use></svg><h3>FAQ + Troubleshooting</h3><p>Known constraints, setup problems, and diagnostic guidance.</p></article>
-          <article><svg aria-hidden="true"><use href="/assets/icons.svg#code"></use></svg><h3>README + Changelog</h3><p>Compatibility, package layout, dependencies, and release changes.</p></article>
-          <article><svg aria-hidden="true"><use href="/assets/icons.svg#mail"></use></svg><h3>Email support</h3><p>Official support channel with response target and clear scope.</p></article>
+
+        <div class="showcase-grid">
+          <figure class="showcase-card showcase-card--wide reveal"><a href="/assets/showcase/demo-dungeon-combat.webp" target="_blank" rel="noopener"><img src="/assets/showcase/demo-dungeon-combat.webp" alt="3D dungeon combat demo with party HUD, initiative queue, combat actions, abilities, combat log, and End Turn button" loading="lazy" width="640" height="359"></a><figcaption><strong>3D dungeon combat</strong><span>A full tactical HUD with party portraits, initiative, selected actor information, action and ability controls, inventory access, combat log, and turn controls.</span></figcaption></figure>
+          <figure class="showcase-card reveal"><a href="/assets/showcase/demo-desert-combat.webp" target="_blank" rel="noopener"><img src="/assets/showcase/demo-desert-combat.webp" alt="3D desert combat demo with character selection, action points, equipped pistol, End Turn control, and enemy initiative portraits" loading="lazy" width="640" height="361"></a><figcaption><strong>A second 3D presentation</strong><span>The same framework supports a different HUD, action-point display, selected weapon, encounter layout, and visual identity.</span></figcaption></figure>
+          <figure class="showcase-card reveal"><a href="/assets/showcase/inventory-equipment.webp" target="_blank" rel="noopener"><img src="/assets/showcase/inventory-equipment.webp" alt="Inventory and equipment window showing backpack slots, character equipment slots, and weapon sets" loading="lazy" width="640" height="359"></a><figcaption><strong>Inventory, equipment, and weapon sets</strong><span>Backpack storage, equipment slots, main-hand and off-hand rules, weapon-set assignment, drag-and-drop interaction, and swap support.</span></figcaption></figure>
+          <figure class="showcase-card reveal"><a href="/assets/showcase/demo-2d-combat.webp" target="_blank" rel="noopener"><img src="/assets/showcase/demo-2d-combat.webp" alt="Retro 2D turn-based combat demo with party portraits, action points, actions, inventory, End Turn control, and combat log" loading="lazy" width="640" height="360"></a><figcaption><strong>2D combat using the same architecture</strong><span>A dedicated 2D demo with its own grid, cursor, actor visuals, user interface, action points, combat log, and presentation style.</span></figcaption></figure>
+          <figure class="showcase-card reveal"><a href="/assets/showcase/scene-setup-wizard.webp" target="_blank" rel="noopener"><img src="/assets/showcase/scene-setup-wizard.webp" alt="RPG Combat Toolkit Set Up Active Scene wizard with 2D and 3D defaults, camera, managers, grid, and bootstrap settings" loading="lazy" width="640" height="711"></a><figcaption><strong>Scene setup wizard</strong><span>Load the supplied 2D or 3D defaults, choose the camera, managers, grid dimensions and prefabs, bootstrap settings, providers, and factories, then create the selected scene infrastructure.</span></figcaption></figure>
+          <figure class="showcase-card reveal"><a href="/assets/showcase/ac-graph.webp" target="_blank" rel="noopener"><img src="/assets/showcase/ac-graph.webp" alt="RPG Combat Toolkit NodeGraph formula combining actor values, actor stats, constants, comparisons, conditional logic, range mapping, actor methods, and a result node" loading="lazy" width="640" height="422"></a><figcaption><strong>Visual stat and rule formulas</strong><span>Build formulas from actor values and stats, constants, comparisons, conditional branches, range mappings, arithmetic nodes, and actor-method calls.</span></figcaption></figure>
         </div>
       </div>
     </section>
 
-    <section class="section" id="faq">
-      <div class="container faq-layout">
-        <div class="faq-intro reveal">
-          <p class="eyebrow"><span></span> Clear requirements</p>
-          <h2>Compatibility and boundaries, stated before purchase.</h2>
-          <p>RPG Combat Toolkit is a combat framework—not a complete RPG maker, campaign save system, or multiplayer solution.</p>
-          <a href="/support/" class="text-link">Read the complete support policy <svg aria-hidden="true"><use href="/assets/icons.svg#external"></use></svg></a>
+    <section class="section" id="examples">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Concrete use cases</p>
+          <h2>What can you build with it?</h2>
+          <p>The framework supplies the common combat machinery while leaving the game-specific rules, content, and art direction under your control.</p>
         </div>
-        <div class="faq-list reveal">
-          <details open><summary>Which Unity versions are claimed for version 1.0?</summary><p>Unity 6.0 LTS is the minimum. The release validation matrix targets Unity 6000.0, 6000.3, and 6000.5. Unity 2022.x and Unity 6.6 or newer are not claimed for version 1.0.</p></details>
-          <details><summary>Which dependencies and render pipeline are required?</summary><p>The Unity Input System is required. The default runtime UI uses UGUI and TextMesh Pro. The supplied demos and presentation assets are authored for URP.</p></details>
-          <details><summary>Does the toolkit provide complete save-game management?</summary><p>No. TBCS provides an extensible combat snapshot layer. File IO, save slots, campaign management, and any global transaction coordinator remain the consuming game’s responsibility.</p></details>
-          <details><summary>Can the default systems be replaced?</summary><p>Yes. Health, stats, actions, animation, inventory, catalogs, parties, persistence, UI services, and other integrations expose extension seams. Custom integrations still require project-specific implementation.</p></details>
-          <details><summary>Does version 1.0 include multiplayer?</summary><p>No. Networking and multiplayer synchronization are not included.</p></details>
-          <details><summary>Does the package contain AI-assisted sample content?</summary><p>Some default, sample, and demonstration art and audio began as generative-AI-assisted source material and was subsequently modified and integrated by Arkana Mechanika Studios. The package includes a detailed disclosure.</p></details>
+
+        <div class="example-list">
+          <article class="example-row reveal"><div class="example-index">A</div><div><h3>Create a targeted spell or skill</h3><p>Define who can be targeted, range, line-of-sight requirements, single-target or area-of-effect shape, validation conditions, health or effect changes, projectile behavior, and visuals. The player preview, final validation, reaction flow, and AI use the same runtime rules.</p><ul><li>Self, friendly, hostile, or filtered targets</li><li>Range and line-of-sight checks</li><li>Area-of-effect zones and previews</li><li>Effects, statuses, healing, damage, and projectiles</li><li>2D and 3D visualizers</li></ul></div></article>
+          <article class="example-row reveal"><div class="example-index">B</div><div><h3>Build a turn with movement, attacks, reactions, and delays</h3><p>The turn manager owns the current actor and action queue. Actions can spend action points, movement follows pathfinding and occupancy rules, opportunity attacks and triggered reactions can interrupt the flow, and actors can delay or ready an action.</p><ul><li>Rounds, turn order, current actor, and AI turns</li><li>Queued actions with availability and cost checks</li><li>Delay Turn, End Turn, reactions, and ready actions</li><li>Movement and attack range previews</li><li>Combat-log and UI feedback for denied actions</li></ul></div></article>
+          <article class="example-row reveal"><div class="example-index">C</div><div><h3>Equip items and swap weapon sets during combat</h3><p>Actors can use backpack, equipment, and weapon-set components. The default UI supports drag-and-drop transfers, equipment restrictions, two-handed weapon safeguards, and runtime weapon-set swapping through a combat action.</p><ul><li>Backpack and equipment slots</li><li>Main-hand, off-hand, armour, and custom equipment concepts</li><li>Two-handed and off-hand validation</li><li>Multiple weapon sets and Swap Weapon Set action</li><li>Inventory/equipment snapshot adapters</li></ul></div></article>
+          <article class="example-row reveal"><div class="example-index">D</div><div><h3>Capture and restore supported combat state</h3><p>The snapshot layer collects registered subsystem chunks for turn order, actors, grid objects, health, action points, effects, inventory, equipment, and parties. Connect the resulting snapshot to the storage solution used by your game.</p><ul><li>Stable IDs and versioned snapshot chunks</li><li>Pluggable sources and restore adapters</li><li>Stock adapters for the principal combat subsystems</li><li>Validation before destructive inventory restore</li><li>Documented boundary: no file IO, save slots, or global rollback transaction</li></ul></div></article>
         </div>
+      </div>
+    </section>
+
+    <section class="section section--surface feature-preview" id="features">
+      <div class="container">
+        <div class="section-heading section-heading--center reveal">
+          <p class="eyebrow"><span></span> Feature catalogue</p>
+          <h2>The principal systems included in version 1.0.</h2>
+          <p>Open the full feature matrix for a detailed, category-by-category description of the runtime, UI, editor tools, persistence scope, demos, requirements, and limitations.</p>
+        </div>
+
+        <div class="feature-category-grid">
+          <a href="/features/#actors"><strong>Actors and factions</strong><span>Actor components, selection, states, facing, death, spawning, factions, and grid occupancy.</span></a>
+          <a href="/features/#turns"><strong>Turns, actions, and action points</strong><span>Rounds, turn order, queues, costs, availability rules, delay, ready, end turn, and weapon-set swap.</span></a>
+          <a href="/features/#grids"><strong>Grids, pathfinding, and movement</strong><span>2D/3D square grids, generation, cells, costs, occupancy, BFS/Dijkstra, facing, and previews.</span></a>
+          <a href="/features/#attacks"><strong>Attacks, projectiles, and reactions</strong><span>Melee/ranged targeting, projectiles, opportunity attacks, triggered reactions, and threat zones.</span></a>
+          <a href="/features/#abilities"><strong>Modular abilities</strong><span>Target filters, range, LOS, AoE, conditions, effects, AI evaluation, projectiles, and visualizers.</span></a>
+          <a href="/features/#effects"><strong>Effects, statuses, health, and AP</strong><span>Timed effects, status restrictions, health implementations, modifiers, and action-point presentation.</span></a>
+          <a href="/features/#inventory"><strong>Inventory and equipment</strong><span>Backpack, equipment, weapon sets, item catalogs, drag-and-drop UI, validation, and persistence.</span></a>
+          <a href="/features/#stats"><strong>Stats, NodeGraph, and dice</strong><span>Actor stats, derived formulas, graph nodes, actor-method calls, modifiers, comparisons, and dice.</span></a>
+          <a href="/features/#ai"><strong>AI and actor behaviours</strong><span>AI turns, movement, attacks, ability evaluation, actor behaviours, and optional reaction queues.</span></a>
+          <a href="/features/#ui"><strong>Default UGUI presentation</strong><span>Combat HUD, initiative, party, actions, abilities, tooltips, log, inventory, equipment, and focus handling.</span></a>
+          <a href="/features/#presentation"><strong>Visuals, animation, audio, and camera</strong><span>Overlays, path previews, highlights, health bars, animation drivers, voices, footsteps, SFX, and camera helpers.</span></a>
+          <a href="/features/#persistence"><strong>Combat persistence</strong><span>Snapshot facade, versioned chunks, stable IDs, adapters, catalogs, and clearly documented limits.</span></a>
+          <a href="/features/#editor"><strong>Editor workflow</strong><span>Scene and actor setup, grid tools, validation, tooltip installation, demo setup, spawner guidance, and NodeGraph.</span></a>
+          <a href="/features/#package"><strong>Demos, docs, source, and support</strong><span>Three demos, Demo Menu, source code, six PDFs, README, known issues, notices, and email support.</span></a>
+        </div>
+
+        <div class="center-action reveal"><a class="button button--primary" href="/features/">Open the complete feature matrix</a></div>
+      </div>
+    </section>
+
+    <section class="section" id="demos">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Included demonstrations</p>
+          <h2>Three combat demos, three different presentations.</h2>
+          <p>The demos are examples and learning material—not runtime dependencies of the framework architecture.</p>
+        </div>
+
+        <div class="demo-grid">
+          <article class="demo-card reveal"><img src="/assets/showcase/demo-dungeon-combat.webp" alt="Dungeon combat demonstration" loading="lazy" width="640" height="359"><div><span>Demo 1 · 3D</span><h3>Dungeon party combat</h3><p>A party-oriented fantasy presentation showing initiative, actors, attacks, abilities, ready/delay controls, inventory access, combat log, voice/audio, and camera helpers.</p></div></article>
+          <article class="demo-card reveal"><img src="/assets/showcase/demo-desert-combat.webp" alt="Desert combat demonstration" loading="lazy" width="640" height="361"><div><span>Demo 2 · 3D</span><h3>Desert action-point combat</h3><p>A contrasting 3D presentation centred on action points, weapons, character selection, enemies, inventory, equipment, and a different HUD composition.</p></div></article>
+          <article class="demo-card reveal"><img src="/assets/showcase/demo-2d-combat.webp" alt="Retro two-dimensional combat demonstration" loading="lazy" width="640" height="360"><div><span>Demo 3 · 2D</span><h3>Retro 2D combat</h3><p>A pixel-art example demonstrating that the same combat architecture can drive a dedicated 2D grid, actor visuals, selection, UI, action points, inventory, and combat log.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface editor-tools">
+      <div class="container editor-layout">
+        <div class="editor-copy reveal">
+          <p class="eyebrow"><span></span> Editor tooling</p>
+          <h2>Customer setup is part of the product.</h2>
+          <p>The toolkit does not expect customers to discover every required object and service by trial and error. Version 1.0 includes guided setup and read-only diagnostics.</p>
+          <ul class="check-list">
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg><span><strong>Scene Setup Wizard:</strong> load 2D/3D defaults and configure camera, managers, grid, cursor, bootstrap, providers, factories, and previews.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg><span><strong>Current Scene Validator:</strong> reports missing/duplicate managers, actors, factions, Input System setup, EventSystem modules, TMP resources, URP, and tooltip configuration.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg><span><strong>Actor and grid tools:</strong> actor creation, grid generation, grid editor utilities, safer spawner inspector guidance, and undo-aware operations.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg><span><strong>Tooltip and demo setup:</strong> one-click default tooltip installation, demo Build Settings setup, and conflict-safe layer preparation.</span></li>
+            <li><svg aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg><span><strong>NodeGraph editor:</strong> visually author stat and rule formulas from data, comparisons, conditions, mappings, arithmetic, and actor methods.</span></li>
+          </ul>
+        </div>
+        <div class="editor-images reveal">
+          <figure><img src="/assets/showcase/scene-setup-wizard.webp" alt="Scene Setup Wizard" loading="lazy" width="640" height="711"><figcaption>Set Up Active Scene</figcaption></figure>
+          <figure><img src="/assets/showcase/ac-graph.webp" alt="NodeGraph formula editor" loading="lazy" width="640" height="422"><figcaption>NodeGraph formula authoring</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="requirements">
+      <div class="container requirements-layout">
+        <div class="requirements-main reveal">
+          <p class="eyebrow"><span></span> Requirements and scope</p>
+          <h2>Know the integration requirements before purchase.</h2>
+          <div class="requirements-table" role="table" aria-label="RPG Combat Toolkit requirements">
+            <div role="row"><strong role="rowheader">Unity editor</strong><span role="cell">Unity 6.0 LTS minimum. The release matrix targets Unity 6000.0, 6000.3, and 6000.5. Unity 2022.x and Unity 6.6+ are not claimed by version 1.0.</span></div>
+            <div role="row"><strong role="rowheader">Input</strong><span role="cell">Unity Input System required; Active Input Handling must use the new Input System.</span></div>
+            <div role="row"><strong role="rowheader">Runtime UI</strong><span role="cell">Default presentation modules use UGUI and TextMesh Pro.</span></div>
+            <div role="row"><strong role="rowheader">Render pipeline</strong><span role="cell">Supplied demos and presentation assets are authored for URP. Built-in RP and HDRP presentation assets are not supplied.</span></div>
+            <div role="row"><strong role="rowheader">Persistence</strong><span role="cell">Combat snapshot layer only. Your game supplies file IO, save slots, campaign management, and any required global transaction/rollback coordinator.</span></div>
+            <div role="row"><strong role="rowheader">Multiplayer</strong><span role="cell">Networking and multiplayer synchronization are not included.</span></div>
+            <div role="row"><strong role="rowheader">Custom integrations</strong><span role="cell">The architecture exposes extension points, but bespoke third-party integrations and project-specific rules still require implementation.</span></div>
+          </div>
+        </div>
+
+        <aside class="requirements-aside reveal">
+          <h3>Version 1.0 does include</h3>
+          <ul><li>Source code</li><li>Working default implementations</li><li>2D and 3D examples</li><li>URP demo presentation</li><li>Six PDF manuals</li><li>Official support policy</li></ul>
+          <h3>Version 1.0 does not claim</h3>
+          <ul class="outside"><li>A complete RPG creator</li><li>Campaign/save-slot management</li><li>Multiplayer/networking</li><li>Built-in RP or HDRP demo conversion</li><li>Unity 2022 support</li><li>Custom development services</li></ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--surface docs-support">
+      <div class="container docs-support-layout">
+        <div class="reveal"><p class="eyebrow"><span></span> Documentation</p><h2>Six offline PDF guides ship with the package.</h2><ul class="document-list"><li><strong>Quick Start</strong><span>Dependencies, demos, and first setup.</span></li><li><strong>User Manual</strong><span>Systems, architecture, and configuration.</span></li><li><strong>Cookbook</strong><span>Practical workflows and examples.</span></li><li><strong>FAQ</strong><span>Common product and integration questions.</span></li><li><strong>Troubleshooting</strong><span>Setup problems and diagnostic guidance.</span></li><li><strong>Appendices</strong><span>Reference information and supporting detail.</span></li></ul></div>
+        <div class="support-summary reveal"><p class="eyebrow"><span></span> Technical support</p><h2>A defined official support route.</h2><p>Email support includes a two-business-day response target, a structured report checklist, troubleshooting steps, compatibility scope, and a clear boundary between product support and bespoke development.</p><div class="hero-actions"><a class="button button--primary" href="/support/"><svg aria-hidden="true"><use href="/assets/icons.svg#mail"></use></svg> Read the support policy</a><a class="button button--secondary" href="mailto:arkana.mechanika.studios@gmail.com?subject=%5BRPG%20Combat%20Toolkit%20Support%5D">Email support</a></div></div>
       </div>
     </section>
 
     <section class="release-cta">
       <div class="container release-layout reveal">
-        <div><p class="eyebrow"><span></span> Version 1.0</p><h2>Final validation and Asset Store listing preparation are underway.</h2><p>The public demo is available now. The exact release package, launch price, and Asset Store link will be announced after the remaining release gates are complete.</p></div>
-        <div class="release-actions"><a class="button button--primary" href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1" target="_blank" rel="noopener noreferrer">Play demo</a><a class="button button--secondary" href="/support/">Support policy</a></div>
+        <div><p class="eyebrow"><span></span> Version 1.0 release candidate</p><h2>See the framework in action, then inspect every included feature.</h2><p>The public demo is available now. The Asset Store link and final release pricing will replace this message after the exact submission package completes its remaining release gates.</p></div>
+        <div class="release-actions"><a class="button button--primary" href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1" target="_blank" rel="noopener noreferrer">Play the demo</a><a class="button button--secondary" href="/features/">Complete feature list</a></div>
       </div>
     </section>
   </main>
@@ -335,7 +291,7 @@
     <div class="container footer-layout">
       <a class="brand brand--footer" href="/"><img src="/assets/logo.png" alt="" width="34" height="34"><span><strong>Arkana Mechanika Studios</strong><small>RPG Combat Toolkit</small></span></a>
       <p>© <span data-year></span> Arkana Mechanika Studios</p>
-      <nav aria-label="Footer navigation"><a href="#docs">Documentation</a><a href="/support/">Support</a><a href="mailto:arkana.mechanika.studios@gmail.com">Contact</a></nav>
+      <nav aria-label="Footer navigation"><a href="/features/">Features</a><a href="/support/">Support</a><a href="mailto:arkana.mechanika.studios@gmail.com">Contact</a></nav>
     </div>
   </footer>
 
