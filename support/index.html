@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<!-- deploy: support-v1 -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RPG Combat Toolkit Support — Arkana Mechanika Studios</title>
+  <meta name="description" content="Official technical support information for RPG Combat Toolkit (TBCS), including contact details, response targets, troubleshooting steps, and support scope.">
+  <meta name="theme-color" content="#04060D">
+
+  <meta property="og:site_name" content="Arkana Mechanika Studios">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arkana-mechanika-studios.github.io/support/">
+  <meta property="og:title" content="RPG Combat Toolkit — Technical Support">
+  <meta property="og:description" content="Official technical support, troubleshooting guidance, and support scope for RPG Combat Toolkit.">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="RPG Combat Toolkit — Technical Support">
+  <meta name="twitter:description" content="Official technical support, troubleshooting guidance, and support scope for RPG Combat Toolkit.">
+
+  <link rel="canonical" href="https://arkana-mechanika-studios.github.io/support/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "RPG Combat Toolkit Technical Support",
+    "url": "https://arkana-mechanika-studios.github.io/support/",
+    "description": "Official technical support information for RPG Combat Toolkit.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Arkana Mechanika Studios",
+      "url": "https://arkana-mechanika-studios.github.io/",
+      "email": "arkana.mechanika.studios@gmail.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "technical support",
+        "email": "arkana.mechanika.studios@gmail.com",
+        "availableLanguage": "English"
+      }
+    }
+  }
+  </script>
+
+  <style>
+    .support-page .hero {
+      min-height: auto;
+      padding-top: 8.5rem;
+      padding-bottom: 5rem;
+    }
+
+    .support-page .hero-inner {
+      align-items: stretch;
+    }
+
+    .support-contact-card,
+    .support-card,
+    .support-step {
+      background: linear-gradient(145deg, rgba(17, 24, 38, 0.96), rgba(12, 18, 32, 0.92));
+      border: 1px solid var(--border-bright);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .support-contact-card {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .support-contact-card h2,
+    .support-card h3 {
+      font-family: "Outfit", sans-serif;
+      color: var(--text-primary);
+    }
+
+    .support-contact-card h2 {
+      font-size: clamp(1.45rem, 3vw, 2rem);
+    }
+
+    .support-contact-card p,
+    .support-card p,
+    .support-card li,
+    .support-step p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .support-email {
+      overflow-wrap: anywhere;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    .support-email:hover {
+      color: var(--text-primary);
+    }
+
+    .support-meta {
+      display: grid;
+      gap: 0.65rem;
+      padding-top: 0.4rem;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    .support-meta strong {
+      color: var(--text-primary);
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .support-card {
+      padding: 1.7rem;
+    }
+
+    .support-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .support-list {
+      display: grid;
+      gap: 0.7rem;
+      padding-left: 1.2rem;
+    }
+
+    .support-list li::marker {
+      color: var(--teal);
+    }
+
+    .support-list.exclusions li::marker {
+      color: var(--amber);
+    }
+
+    .support-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .support-step {
+      padding: 1.4rem;
+    }
+
+    .support-step-number {
+      width: 2rem;
+      height: 2rem;
+      display: grid;
+      place-items: center;
+      margin-bottom: 0.9rem;
+      border-radius: 999px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      color: var(--teal);
+      font-family: "Outfit", sans-serif;
+      font-weight: 700;
+    }
+
+    .support-step h3 {
+      margin-bottom: 0.55rem;
+      font-family: "Outfit", sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .support-callout {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.4rem;
+      border-left: 3px solid var(--amber);
+      border-radius: var(--r-md);
+      background: var(--amber-dim);
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .support-callout strong {
+      color: var(--text-primary);
+    }
+
+    .support-cta {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .support-cta .section-subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .support-page .nav-brand {
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .support-grid,
+      .support-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .support-page .hero {
+        padding-top: 7.5rem;
+      }
+    }
+  </style>
+</head>
+<body class="support-page">
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-brand" href="/">
+        <img src="/assets/logo.png" class="nav-logo" alt="Arkana Mechanika Studios logo" width="36" height="36"
+             onerror="this.style.background='linear-gradient(135deg,#2DD4BF22,#A78BFA22)';this.removeAttribute('onerror')">
+        <span class="nav-name">Arkana Mechanika</span>
+      </a>
+
+      <div class="nav-links" role="list">
+        <a href="/#product" role="listitem">Toolkit</a>
+        <a href="/#docs" role="listitem">Docs</a>
+        <a href="/#tutorials" role="listitem">Tutorials</a>
+        <a href="/support/" role="listitem" aria-current="page">Support</a>
+        <a href="/#contact" role="listitem">Contact</a>
+        <a href="mailto:arkana.mechanika.studios@gmail.com?subject=%5BRPG%20Combat%20Toolkit%20Support%5D"
+           class="nav-mobile-cta" role="listitem">Email Support</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="/" class="btn btn-outline-teal btn-sm">Product page</a>
+        <a href="mailto:arkana.mechanika.studios@gmail.com?subject=%5BRPG%20Combat%20Toolkit%20Support%5D"
+           class="btn btn-primary btn-sm">Email Support</a>
+        <button class="nav-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="support-heading">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <div class="hero-eyebrow" aria-hidden="true">
+              <div class="hero-eyebrow-line"></div>
+              <span class="hero-eyebrow-text">RPG Combat Toolkit</span>
+            </div>
+
+            <h1 class="hero-title" id="support-heading">
+              Technical support,<br>
+              <span class="grad">clearly routed.</span>
+            </h1>
+
+            <p class="hero-body">
+              This is the official support page for RPG Combat Toolkit. Use it for installation
+              problems, documented toolkit behavior, package-origin errors, reproducible bugs,
+              and clarification of supported extension points.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary"
+                 href="mailto:arkana.mechanika.studios@gmail.com?subject=%5BRPG%20Combat%20Toolkit%20Support%5D">
+                Email technical support
+              </a>
+              <a class="btn btn-ghost" href="#before-contact">Troubleshooting checklist</a>
+            </div>
+
+            <div class="hero-meta">
+              <span class="pill pill-amber">Official email support</span>
+              <div class="hero-meta-dot" aria-hidden="true"></div>
+              <span class="hero-meta-text">English</span>
+              <div class="hero-meta-dot" aria-hidden="true"></div>
+              <span class="hero-meta-text">Monday–Friday</span>
+            </div>
+          </div>
+
+          <aside class="support-contact-card" aria-labelledby="official-channel-heading">
+            <p class="section-label" aria-hidden="true">Official channel</p>
+            <h2 id="official-channel-heading">Contact Arkana Mechanika Studios</h2>
+            <p>
+              Send technical requests to:
+            </p>
+            <a class="support-email"
+               href="mailto:arkana.mechanika.studios@gmail.com?subject=%5BRPG%20Combat%20Toolkit%20Support%5D">
+              arkana.mechanika.studios@gmail.com
+            </a>
+            <div class="support-meta">
+              <span><strong>Subject:</strong> [RPG Combat Toolkit Support]</span>
+              <span><strong>Response target:</strong> within two business days</span>
+              <span><strong>Hours:</strong> Monday–Friday, excluding public holidays</span>
+            </div>
+            <p class="notify-fine">
+              Complex reproduction cases may require additional investigation. The response target
+              is not a guaranteed service-level agreement.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="before-contact" class="section section-bg-alt" aria-labelledby="before-contact-heading">
+      <div class="container">
+        <p class="section-label" aria-hidden="true">Before contacting support</p>
+        <h2 class="section-title" id="before-contact-heading">Four checks solve many setup issues.</h2>
+        <p class="section-subtitle">
+          These steps also give us the information needed to diagnose a remaining problem quickly.
+        </p>
+
+        <div class="support-steps">
+          <article class="support-step">
+            <div class="support-step-number">1</div>
+            <h3>Confirm requirements</h3>
+            <p>
+              Use a claimed Unity 6 editor line, install the Unity Input System, import TMP Essential
+              Resources, and use URP for the supplied demos and presentation assets.
+            </p>
+          </article>
+
+          <article class="support-step">
+            <div class="support-step-number">2</div>
+            <h3>Run scene validation</h3>
+            <p>
+              In Unity, run <strong>Tools &gt; TBCS &gt; Getting Started &gt; Validate Current Scene</strong>
+              and review every reported error or warning.
+            </p>
+          </article>
+
+          <article class="support-step">
+            <div class="support-step-number">3</div>
+            <h3>Review packaged guidance</h3>
+            <p>
+              Check the Quick Start, Troubleshooting guide, FAQ, README, and KNOWN_ISSUES file included
+              with the asset.
+            </p>
+          </article>
+
+          <article class="support-step">
+            <div class="support-step-number">4</div>
+            <h3>Reduce the reproduction</h3>
+            <p>
+              Reproduce the issue in the smallest practical scene or clean project and note the exact
+              sequence that triggers it.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" aria-labelledby="request-heading">
+      <div class="container">
+        <p class="section-label" aria-hidden="true">Support request</p>
+        <h2 class="section-title" id="request-heading">What to include in your email</h2>
+        <p class="section-subtitle">
+          A complete first report reduces follow-up questions and helps us distinguish toolkit issues
+          from project-specific configuration.
+        </p>
+
+        <div class="support-grid">
+          <article class="support-card">
+            <h3>Environment</h3>
+            <ul class="support-list">
+              <li>RPG Combat Toolkit version</li>
+              <li>Exact Unity editor version</li>
+              <li>Input System, URP, UGUI, and TextMesh Pro versions</li>
+              <li>Operating system and relevant build target</li>
+              <li>Whether the issue occurs in a clean import or an existing project</li>
+            </ul>
+          </article>
+
+          <article class="support-card">
+            <h3>Reproduction</h3>
+            <ul class="support-list">
+              <li>Numbered steps that reproduce the problem</li>
+              <li>Expected behavior and actual behavior</li>
+              <li>Complete relevant Console messages and stack traces</li>
+              <li>Screenshots or a short video where useful</li>
+              <li>A minimal reproduction project when requested and practical</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="support-callout">
+          <strong>Protect your project and licenses.</strong>
+          Do not email credentials, API keys, personal data, or a complete commercial project unless
+          specifically requested. Remove unrelated paid third-party assets from any reproduction package.
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section section-bg-alt" aria-labelledby="scope-heading">
+      <div class="container">
+        <p class="section-label" aria-hidden="true">Support scope</p>
+        <h2 class="section-title" id="scope-heading">What standard product support covers</h2>
+        <p class="section-subtitle">
+          The goal is to support the toolkit reliably while keeping the boundary between product support
+          and bespoke game-development work clear.
+        </p>
+
+        <div class="support-grid">
+          <article class="support-card">
+            <h3>Included support</h3>
+            <ul class="support-list">
+              <li>Installation and dependency problems in claimed configurations</li>
+              <li>Package-origin errors and reproducible toolkit bugs</li>
+              <li>Questions about documented features, demos, and editor workflows</li>
+              <li>Clarification of supported interfaces, providers, adapters, and extension points</li>
+              <li>Reasonable help identifying whether an issue originates in TBCS</li>
+              <li>Compatibility questions for Unity versions and package combinations claimed by version 1.0</li>
+            </ul>
+          </article>
+
+          <article class="support-card">
+            <h3>Outside standard support</h3>
+            <ul class="support-list exclusions">
+              <li>Designing or implementing a customer's complete combat system</li>
+              <li>Debugging unrelated project code or reviewing an entire project</li>
+              <li>Building bespoke features or third-party integrations</li>
+              <li>Porting to unsupported Unity versions, render pipelines, platforms, or input backends</li>
+              <li>Multiplayer or networking conversion</li>
+              <li>Emergency, on-call, or guaranteed delivery-time support</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="support-callout">
+          Requests outside standard product support may be declined or discussed separately. Purchasing
+          RPG Combat Toolkit does not include custom development or consulting services.
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" aria-labelledby="compatibility-heading">
+      <div class="container">
+        <p class="section-label" aria-hidden="true">Version 1.0 baseline</p>
+        <h2 class="section-title" id="compatibility-heading">Supported release context</h2>
+
+        <div class="support-grid">
+          <article class="support-card">
+            <h3>Claimed configuration</h3>
+            <ul class="support-list">
+              <li>Minimum editor: Unity 6.0 LTS</li>
+              <li>Validated editors: 6000.0.79f1, 6000.3.8f1, and 6000.5.3f1</li>
+              <li>Unity Input System required</li>
+              <li>Default runtime UI uses UGUI and TextMesh Pro</li>
+              <li>Supplied demos and presentation assets are authored for URP</li>
+            </ul>
+          </article>
+
+          <article class="support-card">
+            <h3>Important boundaries</h3>
+            <ul class="support-list exclusions">
+              <li>Unity 2022.x is not supported by version 1.0</li>
+              <li>Unity 6.6 and newer are not claimed by version 1.0</li>
+              <li>Built-in RP and HDRP presentation are not supplied</li>
+              <li>Persistence is a combat snapshot layer, not file IO or save-slot management</li>
+              <li>Networking and multiplayer synchronization are not included</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section section-bg-alt" aria-labelledby="contact-support-heading">
+      <div class="container support-cta">
+        <p class="section-label" aria-hidden="true">Contact support</p>
+        <h2 class="section-title" id="contact-support-heading">Still blocked?</h2>
+        <p class="section-subtitle">
+          Send the checklist information above and use the required subject prefix so your request
+          can be identified and triaged correctly.
+        </p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="btn btn-primary"
+             href="mailto:arkana.mechanika.studios@gmail.com?subject=%5BRPG%20Combat%20Toolkit%20Support%5D">
+            Email RPG Combat Toolkit support
+          </a>
+          <a class="btn btn-ghost" href="/#tutorials">View tutorials</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="/assets/logo.png" alt="" class="nav-logo" width="28" height="28" aria-hidden="true"
+               style="width:28px;height:28px;"
+               onerror="this.style.display='none'">
+          <span class="footer-name">Arkana Mechanika Studios</span>
+        </div>
+        <span class="footer-copy">© <span id="y"></span> Arkana Mechanika Studios</span>
+        <div class="footer-links">
+          <a href="/">Product</a>
+          <a href="/support/" aria-current="page">Support</a>
+          <a href="/#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    (function() {
+      var btn = document.querySelector('.nav-hamburger');
+      var links = document.querySelector('.nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var open = links.classList.toggle('nav-links-open');
+        btn.classList.toggle('hamburger-open', open);
+        btn.setAttribute('aria-expanded', open);
+      });
+      links.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          links.classList.remove('nav-links-open');
+          btn.classList.remove('hamburger-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+
+    (function() {
+      var btn = document.getElementById('scroll-top');
+      window.addEventListener('scroll', function() {
+        btn.classList.toggle('scroll-top-visible', window.scrollY > 600);
+      });
+      btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>
