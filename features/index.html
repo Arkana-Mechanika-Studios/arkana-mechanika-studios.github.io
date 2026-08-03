@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RPG Combat Toolkit — Complete Version 1.0 Feature List</title>
+  <meta name="description" content="Complete category-by-category feature list for RPG Combat Toolkit version 1.0: actors, turns, actions, grids, attacks, abilities, reactions, inventory, stats, AI, UI, persistence, editor tools, demos, documentation, requirements, and limits.">
+  <meta name="theme-color" content="#061019">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://arkana-mechanika-studios.github.io/features/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Arkana Mechanika Studios">
+  <meta property="og:url" content="https://arkana-mechanika-studios.github.io/features/">
+  <meta property="og:title" content="RPG Combat Toolkit — Complete Feature List">
+  <meta property="og:description" content="A detailed description of every principal runtime, UI, editor, persistence, demo, and documentation system in version 1.0.">
+  <meta property="og:image" content="https://arkana-mechanika-studios.github.io/assets/showcase/ac-graph.webp">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="ambient-grid" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="/" aria-label="Arkana Mechanika Studios home"><img src="/assets/logo.png" alt="" width="38" height="38"><span><strong>Arkana Mechanika</strong><small>RPG Combat Toolkit</small></span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle><span class="sr-only">Open navigation</span><span></span><span></span><span></span></button>
+      <div class="nav-menu" id="nav-menu" data-nav-menu>
+        <a href="/">Product</a>
+        <a href="#runtime">Runtime</a>
+        <a href="#optional">Optional modules</a>
+        <a href="#ui">UI</a>
+        <a href="#editor">Editor tools</a>
+        <a href="#package">Package contents</a>
+        <a href="/support/">Support</a>
+        <a class="button button--small button--primary nav-demo" href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1" target="_blank" rel="noopener noreferrer">Play demo <svg aria-hidden="true"><use href="/assets/icons.svg#external"></use></svg></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section feature-hero">
+      <div class="container feature-hero-layout">
+        <div class="reveal">
+          <p class="eyebrow"><span></span> Version 1.0 feature matrix</p>
+          <h1>Exactly what RPG Combat Toolkit includes.</h1>
+          <p class="hero-lede">This page describes the principal systems shipped in version 1.0 and the scope of the supplied implementations. It is intended to answer the practical pre-purchase question: <strong>what can I build, configure, replace, and demonstrate with this asset?</strong></p>
+          <div class="hero-actions"><a class="button button--primary" href="/">Return to product overview</a><a class="button button--secondary" href="#runtime">Start with the runtime</a></div>
+        </div>
+        <aside class="feature-summary reveal"><h2>At a glance</h2><ul><li>Source-included modular C# framework</li><li>2D and 3D square-grid workflows</li><li>Core runtime plus optional modules</li><li>Default UGUI combat and inventory presentation</li><li>Scene, actor, grid, tooltip, demo, and validation tools</li><li>Demo Menu plus three playable combat demos</li><li>Six PDF guides and official support</li></ul></aside>
+      </div>
+    </section>
+
+    <nav class="feature-jump container" aria-label="Feature categories">
+      <a href="#actors">Actors</a><a href="#turns">Turns and actions</a><a href="#grids">Grid and movement</a><a href="#attacks">Attacks and reactions</a><a href="#abilities">Abilities</a><a href="#effects">Effects and health</a><a href="#inventory">Inventory</a><a href="#stats">Stats and NodeGraph</a><a href="#ai">AI</a><a href="#ui">UGUI</a><a href="#presentation">Presentation</a><a href="#persistence">Persistence</a><a href="#editor">Editor tools</a><a href="#package">Demos and docs</a>
+    </nav>
+
+    <section class="section" id="runtime">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow"><span></span> Core combat runtime</p><h2>The systems that execute combat.</h2><p>These categories form the reusable combat foundation. Optional modules can be added on top without changing the overall turn, grid, action, and actor contracts.</p></div>
+        <div class="catalogue-grid">
+          <article class="catalogue-card reveal" id="actors"><header><span>01</span><div><h3>Actors, components, factions, and states</h3><p>The combatant model and its runtime capabilities.</p></div></header><ul><li>Modular actor component model with optional capabilities</li><li>Friendly and hostile faction ownership used by targeting and combat-end logic</li><li>Current actor and selected actor tracking</li><li>Actor state machine with waiting, movement, aiming, casting, and dead-state workflows</li><li>Facing and direction helpers</li><li>Grid-object occupancy and actor placement</li><li>Actor spawning from configured prefab entries and spawn zones</li><li>Death handling and turn-flow integration</li><li>Event managers for actor selection and state changes</li></ul></article>
+
+          <article class="catalogue-card reveal" id="turns"><header><span>02</span><div><h3>Turns, rounds, actions, and action points</h3><p>The rules that decide who can act and what can be queued.</p></div></header><ul><li>Turn order and round progression</li><li>Current-actor ownership and player/AI turn processing</li><li>Action queues executed through the turn flow</li><li>Action definitions separated from runtime action instances and action data</li><li>Availability and validation rules before an action can execute</li><li>Configurable action-point costs</li><li>Support for actors that cannot currently act</li><li>End Turn control with current-actor and queued-action safeguards</li><li>Delay Turn workflow</li><li>Ready Action workflow</li><li>Swap Weapon Set combat action</li><li>Round and turn banners/counters in the default presentation</li></ul></article>
+
+          <article class="catalogue-card reveal" id="grids"><header><span>03</span><div><h3>2D/3D grids, cells, pathfinding, and movement</h3><p>The spatial layer used by actors, movement, ranges, and targeting.</p></div></header><ul><li>Dedicated 2D and 3D square-grid implementations</li><li>Configurable grid width and height</li><li>Cell prefabs, tile prefabs, and cell-connection assets</li><li>Grid generation and grid-editor utilities</li><li>Cell and grid-object occupancy tracking</li><li>Movement and pathfinding components per actor</li><li>Breadth-first and Dijkstra pathfinding implementations</li><li>Movement-cost-aware cell connections</li><li>Path reconstruction and no-path handling</li><li>Movement range previews and overlays</li><li>Facing/orientation updates during movement</li><li>Grid-object snapshot support</li></ul></article>
+
+          <article class="catalogue-card reveal" id="attacks"><header><span>04</span><div><h3>Attacks, targeting, projectiles, and reactions</h3><p>Stock attack flow plus interrupting and prepared responses.</p></div></header><ul><li>Attack component and attack-aiming state</li><li>Melee and ranged targeting workflows</li><li>Target availability and actor-authorisation checks</li><li>Range and line-of-sight integration</li><li>2D and 3D projectile implementations</li><li>Opportunity-attack processing</li><li>Triggered reactions through reaction components</li><li>Threat-zone selection for prepared responses</li><li>Readied attacks and readied abilities</li><li>Reaction queues and interruption of the normal action flow</li><li>Consistent targeting cancellation with UI Cancel, Escape, or right click</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface" id="optional">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow"><span></span> Optional gameplay modules</p><h2>Add the systems your game needs.</h2><p>These supplied modules extend the core actor, action, and service contracts. They are included in the package but can be omitted or replaced.</p></div>
+        <div class="catalogue-grid">
+          <article class="catalogue-card reveal" id="abilities"><header><span>05</span><div><h3>Modular abilities and area targeting</h3><p>Author spells, skills, healing, damage, effects, and projectiles from reusable modules.</p></div></header><ul><li>Modular ability definitions and runtime ability instances</li><li>Ability-definition collections and registrars</li><li>Self, friendly, hostile, and filtered target contexts</li><li>Range condition modules</li><li>Line-of-sight condition modules</li><li>Single-target and area-of-effect targeting</li><li>2D and 3D area/zone implementations</li><li>Health-value change modules for damage or healing</li><li>Status/effect application through the effect system</li><li>Projectile and animation integration</li><li>Ability reaction component</li><li>Player preview and final-cast validation using the same runtime rules</li><li>AI ability evaluation service</li><li>2D and 3D ability visualizers</li><li>Ability tooltip content</li></ul></article>
+
+          <article class="catalogue-card reveal" id="effects"><header><span>06</span><div><h3>Effects, statuses, health, and action points</h3><p>Runtime state changes, restrictions, health implementations, and turn economy.</p></div></header><ul><li>Effect manager with active-effect ownership</li><li>Timed effects and turn/round ticking</li><li>Status definitions and status components</li><li>Status rules that can prevent movement, attacks, or actions</li><li>Effect and status persistence adapters</li><li>Basic health implementation</li><li>Stat-based health implementation</li><li>Health modifiers and health-value changes</li><li>Health factories for actor setup</li><li>Action-point component and snapshot adapter</li><li>Default action-point views and costs</li><li>Actor overlays and health-bar presentation</li></ul></article>
+
+          <article class="catalogue-card reveal" id="inventory"><header><span>07</span><div><h3>Inventory, equipment, items, and weapon sets</h3><p>Combat-ready item ownership with default drag-and-drop presentation.</p></div></header><ul><li>Actor inventory component and backpack slots</li><li>Equipment component and equipment slots</li><li>Main-hand and off-hand weapon handling</li><li>Two-handed weapon safeguards</li><li>Automatic off-hand re-enabling when a two-handed weapon is removed</li><li>Multiple weapon sets per actor</li><li>Weapon-set assignment and combat-time swapping</li><li>Item catalogs and item-definition resolution</li><li>Drag-and-drop inventory/equipment UI</li><li>Transfer validation and rejected-transfer cleanup</li><li>Inventory, equipment, and weapon-set snapshot support</li><li>Authoritative empty-state restoration</li><li>Stock persistence preflight before clearing live item state</li></ul></article>
+
+          <article class="catalogue-card reveal" id="stats"><header><span>08</span><div><h3>Statistics, NodeGraph formulas, modifiers, and dice</h3><p>An optional authored-stat system with visual calculation graphs.</p></div></header><ul><li>Actor stat definitions and actor stat collections</li><li>Base and derived/stat-computed values</li><li>Stat modifiers and rule interactions</li><li>Visual NodeGraph editor</li><li>Actor Value and Actor Stat nodes</li><li>Constant and arithmetic nodes</li><li>Compare nodes and If/Then/Else branching</li><li>Range Mapper nodes for table-style mappings</li><li>Actor-method call nodes for project-specific rule inputs</li><li>Result nodes and live graph-value previews</li><li>Dice utilities with modifiers and validation</li><li>Exact stat-identifier resolution and recursion guards</li></ul></article>
+
+          <article class="catalogue-card reveal" id="ai"><header><span>09</span><div><h3>AI and actor behaviours</h3><p>Default paths for non-player turns with extension points for custom decision-making.</p></div></header><ul><li>Actor behaviour component</li><li>Player-controlled and AI-controlled turn paths</li><li>AI movement queueing</li><li>AI attack selection/execution hooks</li><li>Modular AI ability service</li><li>Ability range, condition, and target validation reused by AI</li><li>Status-aware movement and attack denial</li><li>Closest-hostile and direction helpers</li><li>Optional reaction-queue capability for custom behaviours</li><li>Replaceable behaviour/service interfaces for project-specific AI</li></ul></article>
+
+          <article class="catalogue-card reveal" id="persistence"><header><span>10</span><div><h3>Combat snapshot and restore layer</h3><p>Capture supported combat state and connect it to your own storage system.</p></div></header><ul><li>Combat Snapshot Facade for registered sources and restorers</li><li>Versioned subsystem chunks and stable adapter keys</li><li>Stable IDs for participating actors and grid objects</li><li>Turn-order snapshot adapter</li><li>Actor snapshot adapter</li><li>Grid-object snapshot adapter</li><li>Health snapshot adapter</li><li>Action-point snapshot adapter</li><li>Effect/status snapshot adapters</li><li>Inventory/equipment snapshot adapter</li><li>Party snapshot adapter</li><li>All-or-empty capture path through TryCaptureAll</li><li>Deterministic restore order</li><li>Validation of malformed, duplicate, or unsupported chunks</li></ul><div class="scope-note"><strong>Scope boundary:</strong> this is not file IO, save-slot management, campaign persistence, or a global transaction. Earlier restored chunks are not rolled back if a later chunk fails.</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ui">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow"><span></span> Default customer-facing presentation</p><h2>A working UGUI combat interface is included.</h2><p>The default presentation is not mandatory, but it demonstrates and exposes the principal runtime systems without requiring the buyer to build every control before testing the framework.</p></div>
+        <div class="catalogue-grid">
+          <article class="catalogue-card reveal"><header><span>11</span><div><h3>Combat HUD and information panels</h3><p>Runtime controls and feedback for the active encounter.</p></div></header><ul><li>Selected actor panel</li><li>Hostile target information panel</li><li>Party panel and member widgets</li><li>Initiative/turn queue and queue entries</li><li>Round and turn displays</li><li>Status panels and status icons</li><li>Action-point views</li><li>Weapon-set panel and active weapon-set view</li><li>Combat log with bounded history and manual-scroll preservation</li><li>Cursor information label</li><li>Floating combat text and round/turn banners</li></ul></article>
+
+          <article class="catalogue-card reveal"><header><span>12</span><div><h3>Action, ability, reaction, and turn controls</h3><p>Ready-to-use controls connected to the action and turn runtime.</p></div></header><ul><li>Actions panel and quick-action buttons</li><li>Abilities panel and ability buttons</li><li>Ready Action panel and buttons</li><li>Delay Turn button</li><li>End Turn button</li><li>Weapon-set controls</li><li>Availability checks before execution</li><li>Visible summaries for unavailable actions/abilities</li><li>Optional availability tooltips that explain why a control is disabled</li><li>Configurable empty states instead of blank panels</li><li>Controls recover state after reactions and actor changes</li></ul></article>
+
+          <article class="catalogue-card reveal"><header><span>13</span><div><h3>Inventory and modal interaction</h3><p>Default presentation for item management and in-combat modal panels.</p></div></header><ul><li>Inventory window</li><li>Backpack panel and slots</li><li>Equipment panel and slots</li><li>Weapon-set panel, rows, and slots</li><li>Inventory toggle control</li><li>Drag preview and drag context</li><li>Inventory/equipment tooltips</li><li>Escape/right-click cancellation</li><li>Responsive panel placement</li><li>Keyboard/controller navigation capture and restoration</li><li>Modal focus management</li></ul></article>
+
+          <article class="catalogue-card reveal"><header><span>14</span><div><h3>Tooltip system and input focus</h3><p>Discoverability for mouse, keyboard, and controller users.</p></div></header><ul><li>Default tooltip prefab</li><li>One-click Canvas installer</li><li>TMP prerequisite detection</li><li>Validation for duplicate or incomplete tooltip systems</li><li>Pointer hover tooltips</li><li>Keyboard/controller focus tooltips</li><li>Live availability content</li><li>Tooltip layering above runtime-created modal panels</li><li>Pointer exit and focus-change cleanup</li><li>Fast Enter Play Mode lifecycle recovery</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface" id="presentation">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow"><span></span> Visual, animation, audio, and camera modules</p><h2>Presentation hooks for both 2D and 3D combat.</h2><p>The supplied modules demonstrate how combat events connect to animation, audio, overlays, projectiles, actor feedback, and camera behaviour.</p></div>
+        <div class="catalogue-grid">
+          <article class="catalogue-card reveal"><header><span>15</span><div><h3>Visual feedback and overlays</h3></div></header><ul><li>Movement and attack range overlays</li><li>Ability area previews in 2D and 3D</li><li>Ranged-path preview controller</li><li>Actor highlight component</li><li>Actor overlays and health bars</li><li>2D sprite-outline demonstration</li><li>Valid/invalid targeting feedback</li><li>Projectile presentation in 2D and 3D</li></ul></article>
+          <article class="catalogue-card reveal"><header><span>16</span><div><h3>Animation and audio</h3></div></header><ul><li>Replaceable animation-driver interface</li><li>Animator-based stock animation driver</li><li>Optional animation-override calls for equipment changes</li><li>Actor voice component and voice profiles</li><li>Voice highlighting/binding support</li><li>Footstep controller</li><li>Weapon sound effects</li><li>Demo audio and feedback examples</li></ul></article>
+          <article class="catalogue-card reveal"><header><span>17</span><div><h3>Camera and environment helpers</h3></div></header><ul><li>2D and 3D camera prefabs used by scene setup</li><li>Camera movement and zoom controls in demos</li><li>3D camera rotation controls</li><li>See-through-wall/obstacle behaviour</li><li>Conflict-safe demo layer setup</li><li>AudioListener safeguards when adding a stock camera</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="editor">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow"><span></span> Editor workflow and diagnostics</p><h2>Tools for setup, authoring, and validation.</h2><p>These tools are included to make the framework usable by customers rather than merely exposing runtime classes.</p></div>
+        <div class="catalogue-grid">
+          <article class="catalogue-card reveal"><header><span>18</span><div><h3>Scene Setup Wizard</h3></div></header><ul><li>Load supplied 2D defaults or 3D defaults</li><li>Choose and create the scene camera</li><li>Create/configure Turn Manager and TBCS Manager</li><li>Create cursor and EventSystem/InputSystemUIInputModule where required</li><li>Configure grid dimensions, connection costs, cell/tile prefabs, and grid mode</li><li>Configure Bootstrap settings, weapon provider, action factory, and health factory</li><li>Add optional range and ranged-path previews</li><li>Preserve direct customer content under Grid Manager/Objects when replacing a grid</li><li>Preserve actor spawn definitions while rebuilding grid-derived spawner state</li><li>One-step Undo and rollback on setup failure</li></ul></article>
+
+          <article class="catalogue-card reveal"><header><span>19</span><div><h3>Current Scene Validator</h3></div></header><ul><li>Missing and duplicate Bootstrap checks</li><li>Missing and duplicate TBCS Manager / Turn Manager checks</li><li>Missing and duplicate Grid Manager checks</li><li>Required Bootstrap reference checks</li><li>Turn Manager settings and manager-link checks</li><li>Actor/spawner source validation</li><li>Opposing-faction validation</li><li>EventSystem and InputSystemUIInputModule validation</li><li>Input System project-setting validation</li><li>TMP Essential Resources validation</li><li>URP presentation warning</li><li>Tooltip infrastructure and reference validation</li><li>Concise dialog plus copyable Console report</li></ul></article>
+
+          <article class="catalogue-card reveal"><header><span>20</span><div><h3>Additional authoring tools</h3></div></header><ul><li>Actor creation wizard</li><li>Grid menu items and grid generation utilities</li><li>Grid editor utilities</li><li>Spawner inspector guidance and available-cell refresh</li><li>Default tooltip installer</li><li>Demo scene Build Settings setup</li><li>Demo layer preflight that avoids overwriting customer layers</li><li>Quick Start menu command</li><li>Import-time TMP setup reminder</li><li>NodeGraph formula editor</li><li>Voice-profile editor</li><li>Undo-aware and reversible editor operations where applicable</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface" id="package">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow"><span></span> Package contents, examples, and support</p><h2>Learning material and customer-facing release assets.</h2></div>
+        <div class="catalogue-grid">
+          <article class="catalogue-card reveal"><header><span>21</span><div><h3>Demo Menu and three combat demos</h3></div></header><ul><li>Demo Menu with guarded scene loading</li><li>Demo 1: 3D dungeon/party combat presentation</li><li>Demo 2: alternative 3D desert/action-point presentation</li><li>Demo 3: retro 2D combat presentation</li><li>Help / Controls panel in each combat demo</li><li>Pause, resume, restart, and return-to-menu controls</li><li>Loading overlay that prevents duplicate scene selections</li><li>Controller focus restoration and consistent Canvas scaling</li><li>Demo Build Settings and layer setup command</li></ul></article>
+
+          <article class="catalogue-card reveal"><header><span>22</span><div><h3>Documentation</h3></div></header><ul><li>Quick Start PDF</li><li>User Manual PDF</li><li>Cookbook PDF</li><li>FAQ PDF</li><li>Troubleshooting PDF</li><li>Appendices PDF</li><li>Customer-facing README</li><li>Changelog</li><li>Known Issues and Limitations</li><li>Third-Party Notices and bundled license files</li></ul></article>
+
+          <article class="catalogue-card reveal"><header><span>23</span><div><h3>Compatibility, source, and support</h3></div></header><ul><li>Unity 6.0 LTS minimum</li><li>Release matrix targeting Unity 6000.0, 6000.3, and 6000.5</li><li>Source code supplied and organized into focused assemblies</li><li>Unity Input System required</li><li>Default UGUI/TextMesh Pro presentation</li><li>URP-authored demos and presentation assets</li><li>Included IL2CPP linker-preservation rules for stock reflected types</li><li>Official email support page and response target</li><li>Support-request checklist and defined support scope</li></ul></article>
+
+          <article class="catalogue-card catalogue-card--warning reveal"><header><span>!</span><div><h3>Not included or not claimed by version 1.0</h3></div></header><ul><li>Unity 2022 compatibility</li><li>Unity 6.6 or newer compatibility claim</li><li>Built-in RP or HDRP conversion of supplied presentation assets</li><li>Complete runtime UI Toolkit replacement</li><li>File IO, save slots, or campaign save management</li><li>Global transactional rollback across every snapshot subsystem</li><li>Networking or multiplayer synchronization</li><li>Custom third-party integrations</li><li>Bespoke game-development or consulting services</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="release-cta">
+      <div class="container release-layout reveal"><div><p class="eyebrow"><span></span> Still evaluating?</p><h2>Return to the screenshots and concrete examples.</h2><p>The product page shows the supplied demos, inventory/equipment UI, 2D workflow, Scene Setup Wizard, and NodeGraph authoring tool.</p></div><div class="release-actions"><a class="button button--primary" href="/#showcase">View screenshots</a><a class="button button--secondary" href="https://arkana-mechanika-studios.itch.io/rpg-combat-toolkit-demo-1" target="_blank" rel="noopener noreferrer">Play demo</a></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-layout"><a class="brand brand--footer" href="/"><img src="/assets/logo.png" alt="" width="34" height="34"><span><strong>Arkana Mechanika Studios</strong><small>RPG Combat Toolkit</small></span></a><p>© <span data-year></span> Arkana Mechanika Studios</p><nav aria-label="Footer navigation"><a href="/">Product</a><a href="/support/">Support</a><a href="mailto:arkana.mechanika.studios@gmail.com">Contact</a></nav></div></footer>
+  <script src="/site.js" defer></script>
+</body>
+</html>
