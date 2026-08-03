@@ -6,6 +6,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://arkana-mechanika-studios.github.io/features/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://arkana-mechanika-studios.github.io/support/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
