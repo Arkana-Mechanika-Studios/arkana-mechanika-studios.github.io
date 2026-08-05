@@ -1,4 +1,6 @@
 (() => {
+  const discordUrl = 'https://discord.gg/RBfmZNAg9P';
+
   const tutorials = [
     {
       episode: 'Episode 01',
@@ -29,6 +31,113 @@
       url: 'https://youtu.be/Eo5qeoUr4T0'
     }
   ];
+
+  const createDiscordLink = (label = 'Discord') => {
+    const link = document.createElement('a');
+    link.href = discordUrl;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = label;
+    link.dataset.discordLink = 'true';
+    return link;
+  };
+
+  const addDiscordNavigation = () => {
+    document.querySelectorAll('[data-nav-menu]').forEach(menu => {
+      if (menu.querySelector('[data-discord-link]')) return;
+      const link = createDiscordLink('Discord');
+      const supportLink = menu.querySelector('a[href="/support/"]');
+      const demoButton = menu.querySelector('.nav-demo');
+      if (supportLink) menu.insertBefore(link, supportLink);
+      else if (demoButton) menu.insertBefore(link, demoButton);
+      else menu.appendChild(link);
+    });
+
+    document.querySelectorAll('.site-footer nav').forEach(menu => {
+      if (menu.querySelector('[data-discord-link]')) return;
+      const link = createDiscordLink('Discord');
+      const supportLink = menu.querySelector('a[href="/support/"]');
+      if (supportLink) menu.insertBefore(link, supportLink);
+      else menu.appendChild(link);
+    });
+  };
+
+  const addDiscordHomepageContent = () => {
+    const heroFacts = document.querySelector('.hero-facts');
+    if (heroFacts && !heroFacts.querySelector('[data-discord-fact]')) {
+      const supportFact = Array.from(heroFacts.children).find(item => item.textContent.includes('Official email support'));
+      if (supportFact) {
+        supportFact.textContent = 'Email support + Discord community';
+        supportFact.dataset.discordFact = 'true';
+      }
+    }
+
+    const supportSummary = document.querySelector('.docs-support .support-summary');
+    if (!supportSummary || supportSummary.querySelector('[data-discord-link]')) return;
+
+    const paragraph = supportSummary.querySelector('p:not(.eyebrow)');
+    if (paragraph) {
+      paragraph.textContent = 'Official email support provides a structured route for private or detailed investigations. The Arkana Mechanika Studios Discord adds searchable public help, implementation discussion, product news, and a place to share projects built with the toolkit.';
+    }
+
+    const actions = supportSummary.querySelector('.hero-actions');
+    if (actions) {
+      const link = createDiscordLink('Join the Discord community');
+      link.className = 'button button--secondary';
+      actions.appendChild(link);
+    }
+  };
+
+  const addDiscordSupportContent = () => {
+    if (!document.querySelector('.support-hero')) return;
+
+    const heroActions = document.querySelector('.support-hero .hero-actions');
+    if (heroActions && !heroActions.querySelector('[data-discord-link]')) {
+      const link = createDiscordLink('Join Discord');
+      link.className = 'button button--secondary';
+      const checklist = heroActions.querySelector('a[href="#before-contact"]');
+      if (checklist) heroActions.insertBefore(link, checklist);
+      else heroActions.appendChild(link);
+    }
+
+    const heroStatus = document.querySelector('.support-hero .hero-status');
+    if (heroStatus && !heroStatus.querySelector('[data-discord-status]')) {
+      const status = document.createElement('span');
+      status.textContent = 'Discord community';
+      status.dataset.discordStatus = 'true';
+      heroStatus.appendChild(status);
+    }
+
+    if (!document.getElementById('discord-community')) {
+      const supportHero = document.querySelector('.support-hero');
+      const beforeContact = document.getElementById('before-contact');
+      if (supportHero && beforeContact) {
+        const section = document.createElement('section');
+        section.className = 'section section--surface';
+        section.id = 'discord-community';
+        section.innerHTML = `
+          <div class="container support-cta reveal">
+            <p class="eyebrow"><span></span> Community support</p>
+            <h2>Join Arkana Mechanika Studios on Discord.</h2>
+            <p>Use Discord for public questions, implementation discussion, shared solutions, product updates, feedback, and showcasing projects built with RPG Combat Toolkit. Email remains the official route for private project information, reproduction files, purchase-related matters, and issues requiring detailed investigation.</p>
+            <div class="hero-actions">
+              <a class="button button--primary" href="${discordUrl}" target="_blank" rel="noopener noreferrer" data-discord-link>Join the Discord community</a>
+              <a class="button button--secondary" href="mailto:arkana.mechanika.studios@gmail.com?subject=%5BRPG%20Combat%20Toolkit%20Support%5D">Email technical support</a>
+            </div>
+          </div>`;
+        beforeContact.insertAdjacentElement('beforebegin', section);
+      }
+    }
+
+    const finalActions = document.querySelector('.support-cta .hero-actions');
+    const finalCta = Array.from(document.querySelectorAll('.support-cta')).at(-1);
+    const finalCtaActions = finalCta?.querySelector('.hero-actions');
+    if (finalCtaActions && !finalCtaActions.querySelector('[data-discord-link]')) {
+      const link = createDiscordLink('Join Discord');
+      link.className = 'button button--secondary';
+      finalCtaActions.appendChild(link);
+    }
+  };
 
   const ensureTutorialStyles = () => {
     if (document.querySelector('link[href="/tutorials.css"]')) return;
@@ -114,6 +223,9 @@
 
   ensureTutorialStyles();
   addTutorialNavigation();
+  addDiscordNavigation();
+  addDiscordHomepageContent();
+  addDiscordSupportContent();
   insertHomepageTutorials();
 
   const header = document.querySelector('[data-header]');
