@@ -264,7 +264,7 @@
   const projectsSection = () => {
     if (!q('.product-hero') || q('#other-projects')) return;
 
-    q('main')?.insertAdjacentHTML('beforeend', `<section class="section section--surface studio-projects-strip" id="other-projects"><div class="container studio-projects-layout reveal"><div><p class="eyebrow"><span></span> Elsewhere at Arkana Mechanika</p><h2>Other projects, kept clearly separate.</h2><p>RPG Combat Toolkit is our Unity asset. Arkana Mechanika also works on independent research and preservation projects, including the Darklands Restoration Project.</p></div><div class="studio-projects-actions"><a class="button button--secondary" href="/projects/">View other projects</a><a class="project-inline-link" href="${darklands}" target="_blank" rel="noopener noreferrer">Visit Darklands Restoration <span aria-hidden="true">↗</span></a></div></div></section>`);
+    q('main')?.insertAdjacentHTML('beforeend', `<section class="section section--surface studio-projects-strip" id="other-projects"><div class="container studio-projects-layout reveal"><div><p class="eyebrow"><span></span> Elsewhere at Arkana Mechanika</p><h2>Our other projects</h2><p>RPG Combat Toolkit is our Unity asset. Arkana Mechanika also works on independent research and preservation projects, including the Darklands Restoration Project.</p></div><div class="studio-projects-actions"><a class="button button--secondary" href="/projects/">View other projects</a><a class="project-inline-link" href="${darklands}" target="_blank" rel="noopener noreferrer">Visit Darklands Restoration <span aria-hidden="true">↗</span></a></div></div></section>`);
   };
 
   const interactions = () => {
