@@ -1,288 +1,334 @@
 (() => {
-  const discordUrl = 'https://discord.gg/RBfmZNAg9P';
+  const q = (selector, root = document) => root.querySelector(selector);
+  const qa = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const discord = 'https://discord.gg/RBfmZNAg9P';
+  const darklands = 'https://arkana-mechanika-labs.github.io/';
+  const img = name => `/assets/showcase/1536/${name}`;
 
   const tutorials = [
-    {
-      episode: 'Episode 01',
-      title: 'Your first combat scene',
-      description: 'Create the initial scene and establish the basic RPG Combat Toolkit combat setup.',
-      videoId: 'bbx2s-UHMsg',
-      url: 'https://www.youtube.com/watch?v=bbx2s-UHMsg'
-    },
-    {
-      episode: 'Episode 02',
-      title: 'The Grid and the Grid Manager',
-      description: 'Understand the spatial foundation used for cells, movement, occupancy, ranges, and targeting.',
-      videoId: '61uMNZN9s_s',
-      url: 'https://www.youtube.com/watch?v=61uMNZN9s_s'
-    },
-    {
-      episode: 'Episode 03',
-      title: 'Creating Actors',
-      description: 'Create combatants and configure the components that give them their runtime capabilities.',
-      videoId: 'DLT_cVnJw1I',
-      url: 'https://www.youtube.com/watch?v=DLT_cVnJw1I'
-    },
-    {
-      episode: 'Episode 04',
-      title: 'Tutorial Episode 04',
-      description: 'Continue the RPG Combat Toolkit tutorial series with the newly published fourth video.',
-      videoId: 'Eo5qeoUr4T0',
-      url: 'https://youtu.be/Eo5qeoUr4T0'
-    }
+    ['Episode 01', 'Your first combat scene', 'Create the initial scene and establish the basic combat setup.', 'bbx2s-UHMsg'],
+    ['Episode 02', 'The Grid and the Grid Manager', 'Learn how cells, movement, occupancy, ranges, and targeting fit together.', '61uMNZN9s_s'],
+    ['Episode 03', 'Creating Actors', 'Create combatants and configure the components that give them their runtime capabilities.', 'DLT_cVnJw1I'],
+    ['Episode 04', 'Tutorial Episode 04', 'Continue the RPG Combat Toolkit tutorial series.', 'Eo5qeoUr4T0']
   ];
 
-  const createDiscordLink = (label = 'Discord') => {
-    const link = document.createElement('a');
-    link.href = discordUrl;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.textContent = label;
-    link.dataset.discordLink = 'true';
-    return link;
+  const shots = [
+    ['S00.png', 'A complete turn-based combat toolkit', 'See the toolkit as a whole: connected combat systems, ready-to-use workflows, editor tools, source code, demonstrations, and documentation for building your own tactical RPG.', 'RPG Combat Toolkit overview', true],
+    ['S01_1536x1024.png', 'Modern tactical combat', 'A firearm-focused 3D setup with action points, selection, turn controls, character information, and a complete combat HUD.', 'Modern 3D tactical combat demo on a desert road'],
+    ['S02_1536x1024.png', '2D and retro-friendly', 'Use the same combat foundation for a pixel-art tactical RPG with its own grid, actors, interface, and presentation.', 'Retro pixel-art 2D tactical combat scene'],
+    ['S03_1536x1024.png', 'Inventory and equipment UI', 'A working backpack, equipment layout, item interactions, weapon handling, and combat-ready character panel.', 'Inventory and equipment interface over the modern demo'],
+    ['S04_1536x1024.png', 'Modular ability authoring', 'Create spells, attacks, and special actions as reusable assets, then configure targeting, conditions, execution, and animation in the Inspector.', 'Unity Inspector showing a modular ability definition'],
+    ['S05_1536x1024.png', 'Visual formula graphs', 'Build calculations for stats, costs, bonuses, and rules with a visual graph instead of hard-coding every formula.', 'Visual NodeGraph for an armor class formula'],
+    ['S06_1536x1024.png', 'Scene setup wizard', 'Bootstrap a playable scene by choosing the camera, managers, grid, defaults, providers, and core assets in one guided workflow.', 'RPG Combat Toolkit scene setup wizard'],
+    ['S07_1536x1024.png', 'Guided actor creation', 'Turn a 2D or 3D model into a combat-ready actor prefab without assembling every component by hand.', 'Create Actor Wizard with a 3D character preview'],
+    ['S08_1536x1024.png', 'Multi-tile actors', 'Create creatures and objects that occupy several cells while remaining part of the same movement, occupancy, targeting, and combat rules.', 'Large multi-tile creature on a tactical dungeon grid'],
+    ['S09_1536x1024.png', 'Data-driven action definitions', 'Configure movement, attacks, reactions, validation rules, and action costs as reusable assets shared across actors.', 'Reusable action definition in the Unity Inspector'],
+    ['S10_1536x1024.png', 'Modular action building blocks', 'Keep action costs, availability checks, and execution logic together in a workflow that is easy to inspect and extend.', 'Modular actions with reusable and validation callouts'],
+    ['S11.png', 'Grid and tilemap visualization', 'See cells, masks, playable boundaries, tilemaps, and highlight layers directly in the Unity Editor.', 'Grid and tilemap visualization in a dungeon room'],
+    ['S12.png', 'Inspector-first configuration', 'Tune reusable actions and their validation rules from readable assets, with full source available for deeper changes.', 'Action configuration shown in the Unity Inspector'],
+    ['S13.png', 'Actor component architecture', 'Compose actors from focused components for actions, behaviour, movement, attacks, animation, inventory, equipment, stats, visuals, statuses, abilities, audio, and voice.', 'Actor component architecture around a 3D character']
+  ];
+
+  const ensureCss = href => {
+    if (q(`link[href="${href}"]`)) return;
+    const node = document.createElement('link');
+    node.rel = 'stylesheet';
+    node.href = href;
+    document.head.append(node);
   };
 
-  const addDiscordNavigation = () => {
-    document.querySelectorAll('[data-nav-menu]').forEach(menu => {
-      if (menu.querySelector('[data-discord-link]')) return;
-      const link = createDiscordLink('Discord');
-      const supportLink = menu.querySelector('a[href="/support/"]');
-      const demoButton = menu.querySelector('.nav-demo');
-      if (supportLink) menu.insertBefore(link, supportLink);
-      else if (demoButton) menu.insertBefore(link, demoButton);
-      else menu.appendChild(link);
+  const link = (label, href, external = false) => {
+    const node = document.createElement('a');
+    node.textContent = label;
+    node.href = href;
+    if (external) {
+      node.target = '_blank';
+      node.rel = 'noopener noreferrer';
+    }
+    return node;
+  };
+
+  const beforeSupport = (menu, node) => {
+    const insertionPoint = q('a[href="/support/"]', menu) || q('.nav-demo', menu);
+    insertionPoint ? menu.insertBefore(node, insertionPoint) : menu.append(node);
+  };
+
+  const navigation = () => {
+    qa('[data-nav-menu]').forEach(menu => {
+      if (!q('a[href="/tutorials/"]', menu)) {
+        const node = link('Tutorials', '/tutorials/');
+        const features = q('a[href="/features/"]', menu);
+        features ? features.after(node) : beforeSupport(menu, node);
+      }
+      if (!q('a[href="/projects/"]', menu)) beforeSupport(menu, link('Other projects', '/projects/'));
+      if (!q('a[href^="https://discord.gg/"]', menu)) beforeSupport(menu, link('Discord', discord, true));
     });
 
-    document.querySelectorAll('.site-footer nav').forEach(menu => {
-      if (menu.querySelector('[data-discord-link]')) return;
-      const link = createDiscordLink('Discord');
-      const supportLink = menu.querySelector('a[href="/support/"]');
-      if (supportLink) menu.insertBefore(link, supportLink);
-      else menu.appendChild(link);
+    qa('.site-footer nav').forEach(menu => {
+      if (!q('a[href="/tutorials/"]', menu)) menu.append(link('Tutorials', '/tutorials/'));
+      if (!q('a[href="/projects/"]', menu)) menu.append(link('Other projects', '/projects/'));
+      if (!q('a[href^="https://discord.gg/"]', menu)) menu.append(link('Discord', discord, true));
     });
   };
 
-  const addDiscordHomepageContent = () => {
-    const heroFacts = document.querySelector('.hero-facts');
-    if (heroFacts && !heroFacts.querySelector('[data-discord-fact]')) {
-      const supportFact = Array.from(heroFacts.children).find(item => item.textContent.includes('Official email support'));
-      if (supportFact) {
-        supportFact.textContent = 'Email support + Discord community';
-        supportFact.dataset.discordFact = 'true';
+  const setText = (root, selector, value, html = false) => {
+    const node = q(selector, root);
+    if (!node) return;
+    html ? node.innerHTML = value : node.textContent = value;
+  };
+
+  const homepageCopy = () => {
+    if (!q('.product-hero')) return;
+
+    setText(document, '.product-hero .eyebrow', '<span></span> A turn-based combat foundation you can build on', true);
+    setText(document, '.product-title em', 'Spend less time building combat systems and more time making your RPG');
+    setText(document, '.product-hero .hero-lede', 'Start from a working <strong>2D and 3D tactical combat framework</strong> instead of creating grids, movement, actions, abilities, reactions, inventory, character rules, UI, AI, and persistence one system at a time. Use the supplied setup, tune it to your rules, or replace the parts that make your game different.', true);
+
+    const supportFact = qa('.hero-facts li').find(node => node.textContent.toLowerCase().includes('support'));
+    if (supportFact) supportFact.textContent = 'Email support + Discord community';
+
+    const heading = q('#included .section-heading');
+    if (heading) {
+      setText(heading, '.eyebrow', '<span></span> Start with the parts players will feel', true);
+      setText(heading, 'h2', 'Spend your time on your game—not on the same combat plumbing.');
+      setText(heading, 'p:last-child', 'Movement, abilities, reactions, inventory, UI, and editor tools already work together. Use the defaults to get moving quickly, then shape the rules and presentation around your own RPG.');
+    }
+
+    const cards = [
+      ['Start with a working tactical grid', 'Build square-grid encounters in 2D or 3D with pathfinding, movement costs, occupancy, facing, previews, targeting feedback, and multi-tile actors already connected.'],
+      ['Author abilities without wiring every step by hand', 'Create spells and skills from reusable targeting, range, line-of-sight, area, condition, damage, healing, status, projectile, AI, and visual modules.'],
+      ['Give combat real tactical choices', 'Combine melee and ranged attacks, flexible action-point economies, opportunity attacks, reactions, ready actions, delay, defend, and weapon-set swaps.'],
+      ['Bring gear and character rules into the same loop', 'Use inventory, equipment, weapon sets, health, effects, statuses, modifiers, dice, and visual stat formulas without stitching together unrelated packages.'],
+      ['Test it immediately with working UI and demos', 'Explore combat, inventory, initiative, abilities, statuses, tooltips, party controls, and the combat log through three different playable examples.'],
+      ['Customize without fighting the framework', 'Use setup wizards and validators, edit readable data assets, inspect the full C# source, extend the AI, and connect snapshots to your own save layer.']
+    ];
+
+    qa('#included .priority-card').forEach((card, index) => {
+      if (!cards[index]) return;
+      setText(card, 'h3', cards[index][0]);
+      setText(card, 'p', cards[index][1]);
+    });
+
+    const packages = [
+      ['Swap what you need', 'Clear interfaces let you replace individual systems without throwing away the rest of the toolkit.'],
+      ['A connected combat loop', 'Actors, turns, actions, grids, movement, attacks, reactions, health, and combat state already work together.'],
+      ['Ready-made starting points', 'Default implementations, UGUI, visual feedback, prefabs, settings, factories, and editor helpers are included.'],
+      ['Add the RPG layers you need', 'Abilities, inventory, stats, animation, audio, parties, overlays, AI services, and other modules can be used selectively.'],
+      ['Learn from working examples', 'Three playable demos show different rules, art styles, interfaces, and 2D/3D presentations.']
+    ];
+
+    qa('#included .package-structure > div').forEach((item, index) => {
+      if (!packages[index]) return;
+      setText(item, 'strong', packages[index][0]);
+      setText(item, 'span', packages[index][1]);
+    });
+  };
+
+  const showcase = () => {
+    const section = q('#showcase');
+    if (!section) return;
+
+    const heading = q('.section-heading', section);
+    if (heading) {
+      setText(heading, '.eyebrow', '<span></span> Inside the toolkit', true);
+      setText(heading, 'h2', 'Real demos. Real Unity workflows.');
+      setText(heading, 'p:last-child', 'These screenshots show the runtime, the editor tools, and the systems you will actually configure. Open any image to inspect the full version.');
+    }
+
+    const grid = q('.showcase-grid', section);
+    if (!grid) return;
+
+    grid.className = 'showcase-grid showcase-grid--new';
+    grid.innerHTML = shots.map(([file, title, description, alt, featured], index) => `
+      <figure class="showcase-card new-showcase-card reveal${featured ? ' new-showcase-card--featured' : ''}">
+        <a href="${img(file)}" target="_blank" rel="noopener">
+          <img src="${img(file)}" alt="${alt}" loading="${index === 0 ? 'eager' : 'lazy'}" width="1536" height="1024">
+        </a>
+        <figcaption><strong>${title}</strong><span>${description}</span></figcaption>
+      </figure>`).join('');
+
+    qa('img', grid).forEach(image => {
+      image.addEventListener('error', () => image.closest('figure')?.remove(), { once: true });
+    });
+  };
+
+  const demos = () => {
+    const section = q('#demos');
+    if (!section) return;
+
+    const heading = q('.section-heading', section);
+    if (heading) {
+      setText(heading, 'h2', 'Three examples, three different directions.');
+      setText(heading, 'p:last-child', 'Explore them, learn from them, and pull them apart. The same framework supports very different rules and presentations.');
+    }
+
+    const copy = [
+      [img('S08_1536x1024.png'), 'Fantasy 3D dungeon setup', 'Demo 1 · Fantasy 3D', 'Party-based fantasy combat', 'Tactical movement, attacks, abilities, reactions, inventory, equipment, stats, audio, and camera helpers.'],
+      [img('S01_1536x1024.png'), 'Modern 3D action-point combat', 'Demo 2 · Modern 3D', 'Single-pool action-point combat', 'Firearms, a single action-point pool, equipment, weapon handling, selection, and a different HUD.'],
+      [img('S02_1536x1024.png'), 'Retro pixel-art 2D tactical combat', 'Demo 3 · Fantasy 2D', 'A complete 2D implementation', 'A dedicated 2D grid, cursor, actors, combat UI, action points, inventory, and combat log.']
+    ];
+
+    qa('.demo-card', section).forEach((card, index) => {
+      if (!copy[index]) return;
+      const [src, alt, label, title, text] = copy[index];
+      const image = q('img', card);
+      if (image) {
+        image.src = src;
+        image.alt = alt;
+        image.width = 1536;
+        image.height = 1024;
+      }
+      setText(card, 'span', label);
+      setText(card, 'h3', title);
+      setText(card, 'p', text);
+    });
+  };
+
+  const featureCopy = () => {
+    if (!q('.feature-hero')) return;
+
+    setText(document, '.feature-hero h1', 'Everything included in RPG Combat Toolkit 1.0.');
+    setText(document, '.feature-hero .hero-lede', 'Check the parts that matter to your project first, then dig into the full system list. The toolkit covers the visible combat experience as well as the editor workflows and extension points behind it.');
+    setText(document, '.feature-summary h2', 'A complete starting point');
+
+    const priority = q('.buyer-priority-intro');
+    if (priority) {
+      setText(priority, '.eyebrow', '<span></span> The quickest overview', true);
+      setText(priority, 'h2', 'Six areas you can start building with right away.');
+      setText(priority, 'p:last-child', 'These are the systems most likely to shape your game: grids, abilities, tactical actions, character rules, working UI, and the tools used to set everything up.');
+    }
+
+    const gameplay = q('#gameplay .section-heading');
+    if (gameplay) {
+      setText(gameplay, '.eyebrow', '<span></span> Gameplay systems', true);
+      setText(gameplay, 'h2', 'The building blocks behind your combat.');
+      setText(gameplay, 'p:last-child', 'Use the complete setup or choose the modules that fit your project. Each section below lists what is included in version 1.0.');
+    }
+
+    const ui = q('#ui .section-heading');
+    if (ui) {
+      setText(ui, '.eyebrow', '<span></span> Working UI included', true);
+      setText(ui, 'h2', 'Test the combat before building your final interface.');
+      setText(ui, 'p:last-child', 'The supplied UGUI is replaceable, but it gives you working combat, inventory, tooltip, and turn-control screens from the start.');
+    }
+  };
+
+  const discordContent = () => {
+    const summary = q('.docs-support .support-summary');
+    if (summary) {
+      const paragraph = qa('p', summary).find(node => !node.classList.contains('eyebrow'));
+      if (paragraph) paragraph.textContent = 'Use email for private files or detailed investigations. Join Discord for public questions, implementation discussion, updates, shared solutions, and project showcases.';
+
+      const actions = q('.hero-actions', summary);
+      if (actions && !q('a[href^="https://discord.gg/"]', actions)) {
+        const node = link('Join the Discord community', discord, true);
+        node.className = 'button button--secondary';
+        actions.append(node);
       }
     }
 
-    const supportSummary = document.querySelector('.docs-support .support-summary');
-    if (!supportSummary || supportSummary.querySelector('[data-discord-link]')) return;
+    if (!q('.support-hero')) return;
 
-    const paragraph = supportSummary.querySelector('p:not(.eyebrow)');
-    if (paragraph) {
-      paragraph.textContent = 'Official email support provides a structured route for private or detailed investigations. The Arkana Mechanika Studios Discord adds searchable public help, implementation discussion, product news, and a place to share projects built with the toolkit.';
+    const actions = q('.support-hero .hero-actions');
+    if (actions && !q('a[href^="https://discord.gg/"]', actions)) {
+      const node = link('Join Discord', discord, true);
+      node.className = 'button button--secondary';
+      const checklist = q('a[href="#before-contact"]', actions);
+      checklist ? actions.insertBefore(node, checklist) : actions.append(node);
     }
 
-    const actions = supportSummary.querySelector('.hero-actions');
-    if (actions) {
-      const link = createDiscordLink('Join the Discord community');
-      link.className = 'button button--secondary';
-      actions.appendChild(link);
-    }
-  };
-
-  const addDiscordSupportContent = () => {
-    if (!document.querySelector('.support-hero')) return;
-
-    const heroActions = document.querySelector('.support-hero .hero-actions');
-    if (heroActions && !heroActions.querySelector('[data-discord-link]')) {
-      const link = createDiscordLink('Join Discord');
-      link.className = 'button button--secondary';
-      const checklist = heroActions.querySelector('a[href="#before-contact"]');
-      if (checklist) heroActions.insertBefore(link, checklist);
-      else heroActions.appendChild(link);
+    const status = q('.support-hero .hero-status');
+    if (status && !qa('span', status).some(node => node.textContent.includes('Discord'))) {
+      const node = document.createElement('span');
+      node.textContent = 'Discord community';
+      status.append(node);
     }
 
-    const heroStatus = document.querySelector('.support-hero .hero-status');
-    if (heroStatus && !heroStatus.querySelector('[data-discord-status]')) {
-      const status = document.createElement('span');
-      status.textContent = 'Discord community';
-      status.dataset.discordStatus = 'true';
-      heroStatus.appendChild(status);
-    }
-
-    if (!document.getElementById('discord-community')) {
-      const supportHero = document.querySelector('.support-hero');
-      const beforeContact = document.getElementById('before-contact');
-      if (supportHero && beforeContact) {
-        const section = document.createElement('section');
-        section.className = 'section section--surface';
-        section.id = 'discord-community';
-        section.innerHTML = `
-          <div class="container support-cta reveal">
-            <p class="eyebrow"><span></span> Community support</p>
-            <h2>Join Arkana Mechanika Studios on Discord.</h2>
-            <p>Use Discord for public questions, implementation discussion, shared solutions, product updates, feedback, and showcasing projects built with RPG Combat Toolkit. Email remains the official route for private project information, reproduction files, purchase-related matters, and issues requiring detailed investigation.</p>
-            <div class="hero-actions">
-              <a class="button button--primary" href="${discordUrl}" target="_blank" rel="noopener noreferrer" data-discord-link>Join the Discord community</a>
-              <a class="button button--secondary" href="mailto:arkana.mechanika.studios@gmail.com?subject=%5BRPG%20Combat%20Toolkit%20Support%5D">Email technical support</a>
-            </div>
-          </div>`;
-        beforeContact.insertAdjacentElement('beforebegin', section);
+    if (!q('#discord-community')) {
+      const before = q('#before-contact');
+      if (before) {
+        before.insertAdjacentHTML('beforebegin', `<section class="section section--surface" id="discord-community"><div class="container support-cta reveal"><p class="eyebrow"><span></span> Community support</p><h2>Join Arkana Mechanika Studios on Discord.</h2><p>Use Discord for public questions, implementation discussion, shared solutions, product updates, feedback, and project showcases. Email remains the official route for private project information, files, purchase matters, and detailed investigation.</p><div class="hero-actions"><a class="button button--primary" href="${discord}" target="_blank" rel="noopener noreferrer">Join the Discord community</a><a class="button button--secondary" href="mailto:arkana.mechanika.studios@gmail.com?subject=%5BRPG%20Combat%20Toolkit%20Support%5D">Email technical support</a></div></div></section>`);
       }
     }
-
-    const finalActions = document.querySelector('.support-cta .hero-actions');
-    const finalCta = Array.from(document.querySelectorAll('.support-cta')).at(-1);
-    const finalCtaActions = finalCta?.querySelector('.hero-actions');
-    if (finalCtaActions && !finalCtaActions.querySelector('[data-discord-link]')) {
-      const link = createDiscordLink('Join Discord');
-      link.className = 'button button--secondary';
-      finalCtaActions.appendChild(link);
-    }
   };
 
-  const ensureTutorialStyles = () => {
-    if (document.querySelector('link[href="/tutorials.css"]')) return;
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = '/tutorials.css';
-    document.head.appendChild(link);
+  const tutorialSection = () => {
+    const demoSection = q('#demos');
+    if (!demoSection || q('#tutorials')) return;
+
+    const cards = tutorials.map(([episode, title, description, id]) => `<a class="tutorial-card reveal" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener noreferrer"><span class="tutorial-card-image"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="${title} tutorial thumbnail" loading="lazy" width="480" height="360"><span class="tutorial-play" aria-hidden="true"><svg><use href="/assets/icons.svg#play"></use></svg></span></span><span class="tutorial-card-copy"><small>${episode}</small><h3>${title}</h3><p>${description}</p></span></a>`).join('');
+
+    demoSection.insertAdjacentHTML('afterend', `<section class="section tutorials-section" id="tutorials"><div class="container"><div class="tutorials-intro reveal"><p class="eyebrow"><span></span> Video tutorials</p><h2>Follow the setup step by step.</h2><p>Start with your first combat scene, learn how the grid works, create actors, and continue through the growing tutorial series.</p></div><div class="tutorial-grid">${cards}</div><div class="tutorials-action reveal"><a class="button button--secondary" href="/tutorials/">Open all tutorials</a></div></div></section>`);
   };
 
-  const addTutorialNavigation = () => {
-    document.querySelectorAll('[data-nav-menu]').forEach(menu => {
-      if (menu.querySelector('a[href="/tutorials/"]')) return;
-      const link = document.createElement('a');
-      link.href = '/tutorials/';
-      link.textContent = 'Tutorials';
-      const insertionPoint = menu.querySelector('a[href="/features/"]') || menu.querySelector('a[href="/support/"]') || menu.querySelector('.nav-demo');
-      if (insertionPoint) menu.insertBefore(link, insertionPoint);
-      else menu.appendChild(link);
+  const projectsSection = () => {
+    if (!q('.product-hero') || q('#other-projects')) return;
+
+    q('main')?.insertAdjacentHTML('beforeend', `<section class="section section--surface studio-projects-strip" id="other-projects"><div class="container studio-projects-layout reveal"><div><p class="eyebrow"><span></span> Elsewhere at Arkana Mechanika</p><h2>Other projects, kept clearly separate.</h2><p>RPG Combat Toolkit is our Unity asset. Arkana Mechanika also works on independent research and preservation projects, including the Darklands Restoration Project.</p></div><div class="studio-projects-actions"><a class="button button--secondary" href="/projects/">View other projects</a><a class="project-inline-link" href="${darklands}" target="_blank" rel="noopener noreferrer">Visit Darklands Restoration <span aria-hidden="true">↗</span></a></div></div></section>`);
+  };
+
+  const interactions = () => {
+    const header = q('[data-header]');
+    const toggle = q('[data-nav-toggle]');
+    const menu = q('[data-nav-menu]');
+
+    const close = () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      menu?.classList.remove('is-open');
+    };
+
+    toggle?.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(open));
+      menu?.classList.toggle('is-open', open);
     });
 
-    document.querySelectorAll('.site-footer nav').forEach(menu => {
-      if (menu.querySelector('a[href="/tutorials/"]')) return;
-      const link = document.createElement('a');
-      link.href = '/tutorials/';
-      link.textContent = 'Tutorials';
-      const supportLink = menu.querySelector('a[href="/support/"]');
-      if (supportLink) menu.insertBefore(link, supportLink);
-      else menu.appendChild(link);
+    qa('a', menu || document.createElement('div')).forEach(node => node.addEventListener('click', close));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') close();
     });
-  };
 
-  const createTutorialCard = tutorial => {
-    const card = document.createElement('a');
-    card.className = 'tutorial-card reveal';
-    card.href = tutorial.url;
-    card.target = '_blank';
-    card.rel = 'noopener noreferrer';
-    card.innerHTML = `
-      <span class="tutorial-card-image">
-        <img src="https://i.ytimg.com/vi/${tutorial.videoId}/hqdefault.jpg" alt="${tutorial.title} tutorial thumbnail" loading="lazy" width="480" height="360">
-        <span class="tutorial-play" aria-hidden="true"><svg><use href="/assets/icons.svg#play"></use></svg></span>
-      </span>
-      <span class="tutorial-card-copy">
-        <small>${tutorial.episode}</small>
-        <h3>${tutorial.title}</h3>
-        <p>${tutorial.description}</p>
-      </span>`;
-    return card;
-  };
+    const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 8);
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
 
-  const insertHomepageTutorials = () => {
-    if (document.getElementById('tutorials')) return;
-    const demos = document.getElementById('demos');
-    if (!demos) return;
+    qa('[data-year]').forEach(node => {
+      node.textContent = String(new Date().getFullYear());
+    });
 
-    const section = document.createElement('section');
-    section.className = 'section tutorials-section';
-    section.id = 'tutorials';
-    section.setAttribute('aria-labelledby', 'tutorials-heading');
-
-    const container = document.createElement('div');
-    container.className = 'container';
-    container.innerHTML = `
-      <div class="tutorials-intro reveal">
-        <p class="eyebrow"><span></span> Video tutorials</p>
-        <h2 id="tutorials-heading">Four step-by-step tutorials.</h2>
-        <p>Follow the initial workflow from creating a combat scene and understanding the grid to creating actors and continuing with the newly added fourth tutorial.</p>
-      </div>`;
-
-    const grid = document.createElement('div');
-    grid.className = 'tutorial-grid';
-    tutorials.forEach(tutorial => grid.appendChild(createTutorialCard(tutorial)));
-    container.appendChild(grid);
-
-    const action = document.createElement('div');
-    action.className = 'tutorials-action reveal';
-    action.innerHTML = '<a class="button button--secondary" href="/tutorials/">Open the complete tutorial page</a>';
-    container.appendChild(action);
-
-    section.appendChild(container);
-    demos.insertAdjacentElement('afterend', section);
-  };
-
-  ensureTutorialStyles();
-  addTutorialNavigation();
-  addDiscordNavigation();
-  addDiscordHomepageContent();
-  addDiscordSupportContent();
-  insertHomepageTutorials();
-
-  const header = document.querySelector('[data-header]');
-  const navToggle = document.querySelector('[data-nav-toggle]');
-  const navMenu = document.querySelector('[data-nav-menu]');
-
-  const closeNavigation = () => {
-    if (!navToggle || !navMenu) return;
-    navToggle.setAttribute('aria-expanded', 'false');
-    navMenu.classList.remove('is-open');
-  };
-
-  navToggle?.addEventListener('click', () => {
-    const next = navToggle.getAttribute('aria-expanded') !== 'true';
-    navToggle.setAttribute('aria-expanded', String(next));
-    navMenu?.classList.toggle('is-open', next);
-  });
-
-  navMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNavigation));
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') closeNavigation();
-  });
-
-  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 8);
-  updateHeader();
-  window.addEventListener('scroll', updateHeader, { passive: true });
-
-  document.querySelectorAll('[data-year]').forEach(node => {
-    node.textContent = String(new Date().getFullYear());
-  });
-
-  document.querySelectorAll('.video-lite[data-video]').forEach(button => {
-    button.addEventListener('click', () => {
-      const id = button.dataset.video;
-      if (!id) return;
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0`;
-      iframe.title = button.getAttribute('aria-label') || 'YouTube video';
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-      iframe.allowFullscreen = true;
-      button.replaceChildren(iframe);
+    qa('.video-lite[data-video]').forEach(button => button.addEventListener('click', () => {
+      const frame = document.createElement('iframe');
+      frame.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(button.dataset.video)}?autoplay=1&rel=0`;
+      frame.title = button.getAttribute('aria-label') || 'YouTube video';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.allowFullscreen = true;
+      button.replaceChildren(frame);
       button.removeAttribute('data-video');
-    }, { once: true });
-  });
+    }, { once: true }));
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const revealItems = document.querySelectorAll('.reveal');
-  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-    revealItems.forEach(item => item.classList.add('is-visible'));
-  } else {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const items = qa('.reveal');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || !('IntersectionObserver' in window)) {
+      items.forEach(node => node.classList.add('is-visible'));
+    } else {
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    revealItems.forEach(item => observer.observe(item));
-  }
+      }), { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      items.forEach(node => observer.observe(node));
+    }
+  };
+
+  ensureCss('/tutorials.css');
+  ensureCss('/refresh.css');
+  navigation();
+  homepageCopy();
+  showcase();
+  demos();
+  featureCopy();
+  discordContent();
+  tutorialSection();
+  projectsSection();
+  interactions();
 })();
