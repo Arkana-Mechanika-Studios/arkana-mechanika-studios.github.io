@@ -80,10 +80,6 @@
   const homepageCopy = () => {
     if (!q('.product-hero')) return;
 
-    setText(document, '.product-hero .eyebrow', '<span></span> A turn-based combat foundation you can build on', true);
-    setText(document, '.product-title em', 'Spend less time building combat systems and more time making your RPG');
-    setText(document, '.product-hero .hero-lede', 'Start from a working <strong>2D and 3D tactical combat framework</strong> instead of creating grids, movement, actions, abilities, reactions, inventory, character rules, UI, AI, and persistence one system at a time. Use the supplied setup, tune it to your rules, or replace the parts that make your game different.', true);
-
     const supportFact = qa('.hero-facts li').find(node => node.textContent.toLowerCase().includes('support'));
     if (supportFact) supportFact.textContent = 'Email support + Discord community';
 
@@ -100,7 +96,7 @@
       ['Give combat real tactical choices', 'Combine melee and ranged attacks, flexible action-point economies, opportunity attacks, reactions, ready actions, delay, defend, and weapon-set swaps.'],
       ['Bring gear and character rules into the same loop', 'Use inventory, equipment, weapon sets, health, effects, statuses, modifiers, dice, and visual stat formulas without stitching together unrelated packages.'],
       ['Test it immediately with working UI and demos', 'Explore combat, inventory, initiative, abilities, statuses, tooltips, party controls, and the combat log through three different playable examples.'],
-      ['Customize without fighting the framework', 'Use setup wizards and validators, edit readable data assets, inspect the full C# source, extend the AI, and connect snapshots to your own save layer.']
+      ['Enemy AI, editor tools, and full C# source', 'Use default enemy AI behaviours, setup wizards, and validators. Edit readable data assets, inspect and extend the full C# source, and connect snapshots to your own save layer.']
     ];
 
     qa('#included .priority-card').forEach((card, index) => {
