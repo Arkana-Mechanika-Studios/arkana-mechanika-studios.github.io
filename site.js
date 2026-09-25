@@ -198,7 +198,7 @@
     if (gameplay) {
       setText(gameplay, '.eyebrow', '<span></span> Gameplay systems', true);
       setText(gameplay, 'h2', 'The building blocks behind your combat.');
-      setText(gameplay, 'p:last-child', 'Use the complete setup or choose the modules that fit your project. Each section below lists what is included in version 1.0.');
+      setText(gameplay, 'p:last-child', 'Use the complete setup or choose the modules that fit your project. Each section below lists what is included in version 1.0.1.');
     }
 
     const ui = q('#ui .section-heading');
